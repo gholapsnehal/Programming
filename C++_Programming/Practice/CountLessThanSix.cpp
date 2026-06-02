@@ -28,7 +28,7 @@ class CountX
             }
             iNo = iNo / 10;
         }
-
+        
           return iCount;
     }
 
@@ -36,13 +36,13 @@ class CountX
 
 int main()
 {
+    CountX cobj;
+
     int iValue = 0;
     int iRet = 0;
 
     cout<<"Enter the number:"<<"\n";
     cin>>iValue;
-
-    CountX cobj;
 
     iRet = cobj.CountLessThanSix(iValue);
 

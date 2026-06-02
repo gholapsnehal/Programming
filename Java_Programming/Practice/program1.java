@@ -49,5 +49,7 @@ public class program1
 
         System.out.println("Digit count which are less than 6: "+iRet);
 
+        sobj.close();;
+
     }
 }
