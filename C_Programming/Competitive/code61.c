@@ -1,5 +1,6 @@
 // A13 Q1. Accept N numbers from the user and return the difference between the summation of even 
 //    elements and summation of odd elements.
+// Owner : Snehal Gholap
 
 
 #include<stdio.h>
