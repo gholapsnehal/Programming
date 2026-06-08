@@ -1,3 +1,14 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Function name:   CountEven
+// Input:           Integer Array, Integer
+// Output:          int
+// Description:     Program to return even count of elements from array
+// Date:            09/06/2026
+// Author:          Snehal Gholap
+//
+///////////////////////////////////////////////////////////////////////////////
+
 import java.util.*;
 
 class NumberX
@@ -19,7 +30,7 @@ class NumberX
     }
 }
 
-class program4
+class program04
 {
     public static void main(String A[])
     {

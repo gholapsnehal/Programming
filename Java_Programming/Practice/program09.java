@@ -1,6 +1,15 @@
-// difference between even and odd sum
+///////////////////////////////////////////////////////////////////////////////
+//
+// Function name:   DiffEvenOddSum
+// Input:           Integer Array, Integer
+// Output:          int
+// Description:     Program to return difference between sum of even and odd elements
+// Date:            09/06/2026
+// Author:          Snehal Gholap
+//
+///////////////////////////////////////////////////////////////////////////////
 
-import java.util.*;
+import java.util.Scanner;
 
 class ArrayX
 {
@@ -27,7 +36,7 @@ class ArrayX
     }
 }
 
-class program9
+class program09
 {
     public static void main(String A[])
     {
@@ -40,9 +49,11 @@ class program9
         int iCnt = 0;
         int iRet = 0;
         
+        // accept number of elements
         System.out.println("Enter number of elements: ");
         iLength = sobj.nextInt();
 
+        // allocate memory
         Brr = new int[iLength];
 
         // accept values from user
@@ -54,12 +65,15 @@ class program9
             Brr[iCnt] = sobj.nextInt();
         }
 
+        // use memory or operation
         iRet = aobj.DiffEvenOddSum(Brr, iLength);
 
         System.out.println("Difference between even and odd sum is : "+iRet);
 
         sobj.close();
 
+        Brr = null;
+        System.gc();
     }
 
 }

@@ -1,30 +1,39 @@
-// find maximum number in array
+///////////////////////////////////////////////////////////////////////////////
+//
+// Function name:   FindMin
+// Input:           Integer Array, Integer
+// Output:          int
+// Description:     Program to return minimum element from an array
+// Date:            09/06/2026
+// Author:          Snehal Gholap
+//
+///////////////////////////////////////////////////////////////////////////////
 
 import java.util.*;
 
 class NumberX
 {
-    public int FindMax(int Arr[], int iSize)
+    public int FindMin(int Arr[], int iSize)
     {
         int iCnt = 0;
         
-        int iMax = Arr[0];
+        int iMin = Arr[0];
         
 
         for(iCnt = 1; iCnt < iSize; iCnt++)
         {
-            if(Arr[iCnt] > iMax)
+            if(Arr[iCnt] < iMin)
             {
-                iMax = Arr[iCnt];
+                iMin = Arr[iCnt];
             }
         }
 
-        return iMax;
+        return iMin;
         
     }
 }
 
-class program7
+class program08
 {
     public static void main(String A[])
     {
@@ -51,9 +60,9 @@ class program7
             Brr[iCnt] = sobj.nextInt();
         }
 
-        iRet = nobj.FindMax(Brr, iLength);
+        iRet = nobj.FindMin(Brr, iLength);
 
-        System.out.println("Maximum number is: "+iRet);
+        System.out.println("Minimum number is: "+iRet);
 
         sobj.close();
 

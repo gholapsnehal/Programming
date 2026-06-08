@@ -1,3 +1,14 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Function name:   Display
+// Input:           Integer Array, Integer
+// Output:          void
+// Description:     Display elements of an array
+// Date:            09/06/2026
+// Author:          Snehal Gholap
+//
+///////////////////////////////////////////////////////////////////////////////
+
 import java.util.*;
 
 class NumberX
@@ -15,7 +26,7 @@ class NumberX
     }
 }
 
-class program3
+class program03
 {
     public static void main(String A[])
     {

@@ -1,4 +1,13 @@
-// Q1. accept number from user and print digits whose frequency less than 6.
+///////////////////////////////////////////////////////////////////////////////
+//
+// Function name:   CountLessThanSix
+// Input:           Number
+// Output:          int
+// Description:     Program to return frequency of digits which are less than six
+// Date:            09/06/2026
+// Author:          Snehal Gholap
+//
+///////////////////////////////////////////////////////////////////////////////
 
 import java.util.*;
 
@@ -31,7 +40,7 @@ class DigitX
     }
 }
 
-public class program1
+public class program01
 {
     public static void main(String A[])
     {

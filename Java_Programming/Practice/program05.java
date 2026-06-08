@@ -1,30 +1,37 @@
-// find maximum number in array
+///////////////////////////////////////////////////////////////////////////////
+//
+// Function name:   CountOdd
+// Input:           Integer Array, Integer
+// Output:          int
+// Description:     Program to return odd count of elements from array
+// Date:            09/06/2026
+// Author:          Snehal Gholap
+//
+///////////////////////////////////////////////////////////////////////////////
 
 import java.util.*;
 
 class NumberX
 {
-    public int FindMin(int Arr[], int iSize)
+    public int CountOdd(int Arr[], int iSize)
     {
         int iCnt = 0;
-        
-        int iMin = Arr[0];
+        int iOddCount = 0;
         
 
-        for(iCnt = 1; iCnt < iSize; iCnt++)
+        for(iCnt = 0; iCnt < iSize; iCnt++)
         {
-            if(Arr[iCnt] < iMin)
+            if(Arr[iCnt] % 2 != 0)
             {
-                iMin = Arr[iCnt];
+                iOddCount++;
             }
         }
+        return iOddCount;
 
-        return iMin;
-        
     }
 }
 
-class program8
+class program05
 {
     public static void main(String A[])
     {
@@ -51,9 +58,9 @@ class program8
             Brr[iCnt] = sobj.nextInt();
         }
 
-        iRet = nobj.FindMin(Brr, iLength);
+        iRet = nobj.CountOdd(Brr, iLength);
 
-        System.out.println("Minimum number is: "+iRet);
+        System.out.println("Odd Count: "+iRet);
 
         sobj.close();
 

@@ -1,4 +1,15 @@
-import java.util.*;
+///////////////////////////////////////////////////////////////////////////////
+//
+// Function name:   Summation
+// Input:           Integer Array, Integer
+// Output:          int
+// Description:     Program to return summation of elements of an array
+// Date:            09/06/2026
+// Author:          Snehal Gholap
+//
+///////////////////////////////////////////////////////////////////////////////
+
+import java.util.Scanner;
 
 class NumberX
 {
@@ -13,11 +24,10 @@ class NumberX
         }
 
         return iSum;
-
     }
 }
 
-class program2
+class program02
 {
     public static void main(String A[])
     {
@@ -25,7 +35,7 @@ class program2
 
         NumberX nobj = new NumberX();
 
-        int Brr[];   // reference variable
+        int Brr[];   
         int iLength = 0;
         int iCnt = 0;
         int iRet = 0;
@@ -57,6 +67,8 @@ class program2
         sobj.close();
 
         // DEALLOCATE THE MEMORY: automatically manage memory : garbage collector
-        
+
+        Brr = null;
+        System.gc();    
     }
 }

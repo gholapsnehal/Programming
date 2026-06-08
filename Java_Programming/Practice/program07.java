@@ -1,30 +1,39 @@
-// sum of even array elements
+///////////////////////////////////////////////////////////////////////////////
+//
+// Function name:   FindMax
+// Input:           Integer Array, Integer
+// Output:          int
+// Description:     Program to return maximum element from an array
+// Date:            09/06/2026
+// Author:          Snehal Gholap
+//
+///////////////////////////////////////////////////////////////////////////////
 
 import java.util.*;
 
 class NumberX
 {
-    public int EvenSum(int Arr[], int iSize)
+    public int FindMax(int Arr[], int iSize)
     {
         int iCnt = 0;
         
-        int iEvenSum = 0;
+        int iMax = Arr[0];
         
 
-        for(iCnt = 0; iCnt < iSize; iCnt++)
+        for(iCnt = 1; iCnt < iSize; iCnt++)
         {
-            if(Arr[iCnt] % 2 == 0)
+            if(Arr[iCnt] > iMax)
             {
-                iEvenSum = iEvenSum + Arr[iCnt];
+                iMax = Arr[iCnt];
             }
         }
 
-        return iEvenSum;
+        return iMax;
         
     }
 }
 
-class program6
+class program07
 {
     public static void main(String A[])
     {
@@ -51,9 +60,9 @@ class program6
             Brr[iCnt] = sobj.nextInt();
         }
 
-        iRet = nobj.EvenSum(Brr, iLength);
+        iRet = nobj.FindMax(Brr, iLength);
 
-        System.out.println("Sum of even array elements: "+iRet);
+        System.out.println("Maximum element is: "+iRet);
 
         sobj.close();
 

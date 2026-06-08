@@ -1,28 +1,39 @@
-// count even array elements from array::
+///////////////////////////////////////////////////////////////////////////////
+//
+// Function name:   EvenSum
+// Input:           Integer Array, Integer
+// Output:          int
+// Description:     Program to return sum of even elements from an array
+// Date:            09/06/2026
+// Author:          Snehal Gholap
+//
+///////////////////////////////////////////////////////////////////////////////
 
 import java.util.*;
 
 class NumberX
 {
-    public int CountOdd(int Arr[], int iSize)
+    public int EvenSum(int Arr[], int iSize)
     {
         int iCnt = 0;
-        int iOddCount = 0;
+        
+        int iEvenSum = 0;
         
 
         for(iCnt = 0; iCnt < iSize; iCnt++)
         {
-            if(Arr[iCnt] % 2 != 0)
+            if(Arr[iCnt] % 2 == 0)
             {
-                iOddCount++;
+                iEvenSum = iEvenSum + Arr[iCnt];
             }
         }
-        return iOddCount;
 
+        return iEvenSum;
+        
     }
 }
 
-class program5
+class program06
 {
     public static void main(String A[])
     {
@@ -49,9 +60,9 @@ class program5
             Brr[iCnt] = sobj.nextInt();
         }
 
-        iRet = nobj.CountOdd(Brr, iLength);
+        iRet = nobj.EvenSum(Brr, iLength);
 
-        System.out.println("Odd Count: "+iRet);
+        System.out.println("Sum of even array elements: "+iRet);
 
         sobj.close();
 
