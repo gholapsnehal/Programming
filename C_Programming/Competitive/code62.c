@@ -1,4 +1,5 @@
 // A13 Q2. Accept N numbers from user and display all such elements which are divisible by 5.
+// Owner : Snehal Gholap
 
 #include<stdio.h>
 #include<stdlib.h>
