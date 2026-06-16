@@ -27,7 +27,6 @@ void Pattern(int iNumber)
         printf("#\t%d\t*\t",iCnt);
     }
     
-
 }
 
 int main()

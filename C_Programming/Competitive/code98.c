@@ -10,11 +10,13 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 /* Pattern:
-Input: iRow : 3   iCol : 4
+Input: iRow : 5  iCol : 5
 
-Output: * # * # 
-        * # * # 
-        * # * # 
+Output: a b c d e
+        1 2 3 4 5
+        a b c d e
+        1 2 3 4 5
+        a b c d e
 */
 #include<stdio.h>
 
@@ -23,22 +25,29 @@ void Pattern(int iRow, int iCol)
     int i = 0;
     int j = 0;
 
+    int iNo = 0;
+    char ch = '\0';
+    
+
     for(i = 1; i <= iRow; i++)
     {
-        for(j = 1; j <= iCol; j++)
+        if(i % 2 == 1)
         {
-           if(j % 2 == 0)
-           {
-            printf("#\t");
-           }
-           else
-           {
-            printf("*\t");
-           }
+            for(j = 1, ch = 'a'; j <= iCol; j++,ch++)
+            {
+                printf("%c\t",ch);
+            }
+        }
+        else
+        {
+            for(j = 1,iNo = 1; j <= iCol; j++, iNo++)
+            {
+                printf("%d\t",iNo);               
+            }
         }
         printf("\n");
     }
-
+        
 }
 
 int main()
