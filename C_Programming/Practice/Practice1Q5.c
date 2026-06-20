@@ -1,0 +1,19 @@
+#include<stdio.h>
+
+int main()
+{
+    int iCnt = 0;
+    int jCnt = 0;
+   
+    
+    for(iCnt = 1; iCnt <= 5; iCnt++)
+    {
+        for(jCnt = 1; jCnt <= iCnt; jCnt++)
+        {
+            printf("%d\t",iCnt);
+        }
+
+        printf("\n");
+    }
+
+}

@@ -1,58 +1,34 @@
-/////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Function name:   ChkSmall
+// Function name:   Display
 // Input:           char
-// Output:          BOOL
-// Description:     Accept character from user and check whether small case or not (a-z)
+// Output:          void
+// Description:     Program to display ASCII table. Table contains symbol,Decimal,Hexadecimal and Octal 
+//                  representation of every member from 0 to 255.
 // Date:            19/06/2026
 // Author:          Snehal Gholap
 //
-////////////////////////////////////////////////////////////////////////////////////////////////
-
-/*
-Input : 7
-Output : TRUE
-Input : d
-Output : FALSE
-*/
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include<stdio.h>
-#define TRUE 1
-#define FALSE 0
 
-typedef int BOOL;
-
-BOOL ChkSmall(char ch)
+void Display()
 {
-   if(ch >= 97 && ch <= 122)
-   {
-        return TRUE;
-   }
-   else
-   {
-        return FALSE;
-   }
+    int iCnt = 0;
+
+    printf("Symbol\tDecimal\tHexadecimal\tOctal\n");
+
+    for(iCnt = 0; iCnt <= 255; iCnt++)
+    {
+        printf("%c\t%d\t%x\t%o\n",iCnt,iCnt,iCnt,iCnt);
+    }
+
 }
 
 int main()
 {
-    char cValue = '\0';
-    BOOL bRet = FALSE;
-
-    printf("Enter the character: \n");
-    scanf("%c",&cValue);
-
-    bRet = ChkSmall(cValue);
-
-    if(bRet == TRUE)
-    {
-        printf("It is a small case character");
-    }
-    else
-    {
-        printf("It is not a small case character");
-    }
+    // function call
+    Display();
 
     return 0;
-
 }
