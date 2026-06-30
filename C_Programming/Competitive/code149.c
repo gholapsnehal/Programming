@@ -19,7 +19,7 @@ typedef unsigned int UINT;
 
 BOOL CheckBit(UINT iNo)
 {
-    UINT iMask = (1 << 6) | (1 << 14) | (1 << 20) | (1 << 27);
+    UINT iMask = 0x00020010;
     UINT iAns = 0;
 
     iAns = iNo & iMask;

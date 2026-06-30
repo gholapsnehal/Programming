@@ -3,8 +3,8 @@
 // Function name:   OffBit
 // Input:           Number
 // Output:          int
-// Description:     Write a program which accepts one number from user and off 7th bit of that number
-//                  if it is on. Return modified number
+// Description:     Write a program which accepts one number from user and off 7th, 10th bit of                 
+//                  that number.Return modified number
 // Date :           29/06/2026
 // Author:          Snehal Gholap
 // 
@@ -16,7 +16,7 @@ typedef unsigned int UINT;
 
 UINT OffBit(UINT iNo)
 {
-    UINT iMask = 0xFFFFFFBF;
+    UINT iMask = 0xFFFFFDBF;
 
     iNo = iNo & iMask;
 

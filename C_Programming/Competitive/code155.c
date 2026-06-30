@@ -1,10 +1,10 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// Function name:   OffBit
+// Function name:   ToggleBit
 // Input:           Number
 // Output:          int
-// Description:     Write a program which accepts one number from user and off 7th bit of that number
-//                  if it is on. Return modified number
+// Description:     Write a program which accepts one number from user and toggle 7th bit of that
+//                  number. Return modified number
 // Date :           29/06/2026
 // Author:          Snehal Gholap
 // 
@@ -14,11 +14,11 @@
 
 typedef unsigned int UINT;
 
-UINT OffBit(UINT iNo)
+UINT ToggleBit(UINT iNo)
 {
-    UINT iMask = 0xFFFFFFBF;
+    UINT iMask = 0x00000040;
 
-    iNo = iNo & iMask;
+    iNo = iNo ^ iMask;
 
     return iNo;
 
@@ -31,7 +31,7 @@ int main()
     printf("Enter Number : \n");
     scanf("%u",&iValue);
 
-    iRet = OffBit(iValue);
+    iRet = ToggleBit(iValue);
 
     printf("Modified Number : %u",iRet);
 
