@@ -1,0 +1,33 @@
+############################################################################################################
+#
+# Function name:   Maximum
+# Input:           list
+# Output:          int
+# Description:     write a lambda function using reduce() which accepts a list of numbers and returns the 
+#                  maximum number
+# Date :           03/07/2026
+# Author:          Snehal Gholap
+# 
+############################################################################################################
+
+from functools import reduce
+
+def Maximum(Data):
+   
+    Result = reduce(lambda No1, No2 : No1 if (No1 > No2) else No2,Data)
+
+    return Result
+
+
+def main():
+
+    List =[10,20,30,40,25]
+
+    Result = Maximum(List)
+
+    print("Original List :",List)
+    print("Maximum number is :",Result)
+
+   
+if __name__ == "__main__":
+    main()
