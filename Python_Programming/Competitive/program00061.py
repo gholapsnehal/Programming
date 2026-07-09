@@ -1,21 +1,27 @@
 ############################################################################################################
 #
-# Function name:   Fun
-# Input:           None
+# Function name:   CheckNum
+# Input:           int
 # Output:          None
-# Description:     Display "Hello from Fun" on the console
+# Description:     Check whether the given number is even or odd
 # Date :           08/07/2026
 # Author:          Snehal Gholap
 # 
 ############################################################################################################
 
-def Fun():
+def CheckNum(No):
 
-    print("Hello from fun")
+    if(No % 2 == 0):
+        print("Even Number")
+    else:
+        print("Odd Number")
+
 
 def main():
 
-    Fun()
+    value = int(input("Enter number : "))
+
+    CheckNum(value)
 
 if __name__ == "__main__":
     main()

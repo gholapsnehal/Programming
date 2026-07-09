@@ -1,21 +1,24 @@
 ############################################################################################################
 #
-# Function name:   Fun
+# Function name:   Display
 # Input:           None
 # Output:          None
-# Description:     Display "Hello from Fun" on the console
+# Description:     Display "Marvel" 5 times on the screen
 # Date :           08/07/2026
 # Author:          Snehal Gholap
 # 
 ############################################################################################################
 
-def Fun():
+def Display():
 
-    print("Hello from fun")
+    for i in range(5):
+        print("Marvel")
+
 
 def main():
 
-    Fun()
+    Display()
 
+  
 if __name__ == "__main__":
     main()
