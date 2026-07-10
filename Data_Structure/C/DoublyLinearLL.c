@@ -238,7 +238,6 @@ void DeleteAtPos(PPNODE first, int iPos)
         
     }
 }
-
 int main()
 {
     PNODE head = NULL;
