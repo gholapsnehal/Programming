@@ -1,8 +1,8 @@
-// MENU DRIVEN: SINGLY LINEAR LINKED LIST
+// Singly Circular Linked List
 
 #include<iostream>
 using namespace std;
-
+  
 #pragma pack(1)
 struct node
 {
@@ -13,265 +13,273 @@ struct node
 typedef struct node NODE;
 typedef struct node* PNODE;
 
-class SinglyLL
+class SinglyCL
 {
     private:
-       
-        PNODE first;                   
-        int iCount;                   
-        
-    public: 
-        SinglyLL();
-        void Display();        
+        PNODE first;
+        PNODE last;
+        int iCount;
+
+    public:
+      // declaration of construtor
+        SinglyCL();
+
+        void Display();
         int Count();
+
         void InsertFirst(int iNo);
         void InsertLast(int iNo);
-        void InsertAtPos(int iNo, int iPos);     
+        void InsertAtPos(int iNo, int iPos);
+
         void DeleteFirst();
-        void DeleteLast();   
+        void DeleteLast();
         void DeleteAtPos(int iPos);
-      
+
 };
 
-SinglyLL :: SinglyLL()
+SinglyCL :: SinglyCL()
 {
     this->first = NULL;
+    this->last = NULL;
+
     this->iCount = 0;
 }
 
-void SinglyLL :: Display()
-
+void SinglyCL :: Display()
 {
     PNODE temp = NULL;
 
-    temp = this->first;
+    // Input filter
+    if(first == NULL && last == NULL)
+    {
+        return;
+    }
 
-    while(temp != NULL)
+    temp = first;
+
+    do
     {
         cout<<"| "<<temp->data<<" | - > ";
         temp = temp->next;
-    }
 
-    cout<<"NULL"<<endl;
+    }while(last->next != temp);
+
+    cout<<"\n";
+
 }
 
-int SinglyLL :: Count()
+int SinglyCL :: Count()
 {
     return this->iCount;
 }
 
-void SinglyLL :: InsertFirst(int iNo)
+void SinglyCL :: InsertFirst(int iNo)
 {
     PNODE newn = NULL;
 
-    newn = new NODE;                   
+    newn = new NODE;
 
     newn->data = iNo;
     newn->next = NULL;
 
-    if(this->first == NULL)
+    if(first == NULL && last == NULL)
     {
-        this->first = newn;
-
+        first = newn;
+        last = newn;
     }
     else
     {
-        newn->next = this->first;
-        this->first = newn;
+        newn->next = first;
+        first = newn;
+        
     }
 
-    this->iCount++;           
+    last->next = first;        // IMP
+    iCount++;                  // IMP
 
 }
 
-void SinglyLL :: InsertLast(int iNo)
+void SinglyCL :: InsertLast(int iNo)
 {
     PNODE newn = NULL;
-    PNODE temp = NULL;
 
-    newn = new NODE;                  
+    newn = new NODE;
 
     newn->data = iNo;
     newn->next = NULL;
 
-    if(this->first == NULL)
+    if(first == NULL && last == NULL)
     {
-        this->first = newn;
-
+        first = newn;
+        last = newn;
     }
     else
     {
-        temp = this->first;
-
-        while(temp->next != NULL)
-        {
-            temp = temp->next;
-        }
-
-        temp->next = newn;
-
+        last->next = newn;
+        last = newn;    
     }
 
-    this->iCount++;         
-
+    last->next = first;
+    iCount++;
 }
 
-void SinglyLL :: InsertAtPos(int iNo, int iPos)
+void SinglyCL :: InsertAtPos(int iNo, int iPos)
 {
-    PNODE newn = NULL;
     PNODE temp = NULL;
+    PNODE newn = NULL;
 
     int i = 0;
 
     // Input Filter
     if((iPos < 1) || (iPos > iCount + 1))
     {
-        cout<<"Invalid position"<<endl;
+        cout<<"Invalid position\n";
         return;
     }
 
     if(iPos == 1)
     {
-        this->InsertFirst(iNo);
+        InsertFirst(iNo);
     }
-
     else if(iPos == iCount + 1)
     {
-        this->InsertLast(iNo);
+        InsertLast(iNo);
     }
-
     else
     {
+        temp = first;
+
         newn = new NODE;
 
         newn->data = iNo;
         newn->next = NULL;
 
-        temp = this->first;
-
         for(i = 1; i < (iPos - 1); i++)
         {
             temp = temp->next;
-
         }
 
         newn->next = temp->next;
         temp->next = newn;
 
-        this->iCount++;
-
+        iCount++;
     }
-} 
-
-void SinglyLL :: DeleteFirst()
-{
-    PNODE temp = NULL;
-
-    if(this->first == NULL)
-    {
-        return;
-    }
-
-    else if(this->first->next == NULL)      
-    {
-        delete(this->first);
-        this->first = NULL;
-    }
-
-    else
-    {
-        temp = this->first;
-
-        this->first = this->first->next;
-
-        delete(temp);
-
-    }
-
-    this->iCount--;
 
 }
 
-void SinglyLL :: DeleteLast()
+void SinglyCL :: DeleteFirst()   
 {
     PNODE temp = NULL;
-  
-    if(this->first == NULL)
+
+    if(first == NULL && last == NULL)
     {
         return;
     }
 
-    else if(this->first->next == NULL)     
+    else if(first == last)
     {
-        delete(this->first);
-        this->first = NULL;
-    }
+        delete first;
 
+        first = NULL;
+        last = NULL;
+    }
     else
     {
-        temp = this->first;
+        temp = first;
 
-        while(temp->next->next != NULL)
-        {
-            temp = temp->next;
-        }
+        first = first->next;
 
-        delete temp->next;
-        temp->next = NULL;
+        delete temp;
+
+        last->next = first;
 
     }
 
-    this->iCount--;
+    iCount--;
 
-}   
+}
 
-void SinglyLL :: DeleteAtPos(int iPos)
+void SinglyCL :: DeleteLast()
+{
+    PNODE temp = NULL;
+
+    if(first == NULL && last == NULL)
+    {
+        return;
+    }
+
+    else if(first == last)
+    {
+        delete first;
+
+        first = NULL;
+        last = NULL;
+    }
+    else
+    {
+        // traversal required
+       temp = first;
+
+       while(temp->next != last)
+       {
+        temp = temp->next;
+       }
+
+       delete last;
+       last = temp;
+
+       last->next = first;
+
+       iCount--;
+
+    }
+
+}
+
+void SinglyCL :: DeleteAtPos(int iPos)
 {
     PNODE temp = NULL;
     PNODE target = NULL;
 
     int i = 0;
 
-    // INput Filter
     if((iPos < 1) || (iPos > iCount))
     {
-        cout<<"Invalid position"<<endl;
+        cout<<"Invalid Position\n";
         return;
     }
 
     if(iPos == 1)
     {
-        this->DeleteFirst();
+        DeleteFirst();
     }
 
     else if(iPos == iCount)
     {
-        this->DeleteLast();
+        DeleteLast();
     }
-
     else
     {
-        temp = this->first;
+        temp = first;
 
         for(i = 1; i < (iPos - 1); i++)
         {
             temp = temp->next;
         }
 
-        target = temp->next;    
+        target = temp->next;
 
         temp->next = target->next;
         delete target;
-
-
-        this->iCount--;
     }
 
+    iCount--;
 }
+
 
 int main()
 {
-    SinglyLL sobj;
+    SinglyCL sobj;
 
     int iChoice = 0;
     int iValue = 0;
@@ -289,9 +297,9 @@ int main()
         cout<<"3 : Insert node at given position : \n";
         cout<<"4 : Delete node at first position : \n";
         cout<<"5 : Delete node at last position : \n";
-        cout<<"6 : delete node at given position : \n";
+        cout<<"6 : Delete node at given position : \n";
         cout<<"7 : Display elements: \n";
-        cout<<"8 : Count number of elements: \n";
+        cout<<"8 : Count elements : \n";
         cout<<"9 : Exit\n";
         cout<<"---------------------------------------\n";
 
@@ -338,7 +346,7 @@ int main()
 
             case 7: 
                 
-                cout<<"Elements of linked list are : \n";
+                cout<<"Elements of Singly Circular Linked List are : \n";
                 sobj.Display();
                 break;
 
@@ -350,7 +358,7 @@ int main()
 
             case 9: 
                 
-                cout<<"Thank you for using Singly Linear Linked List Application\n";
+                cout<<"Thank you for using Singly Circular Linked List Application\n";
                 break;
 
             default:

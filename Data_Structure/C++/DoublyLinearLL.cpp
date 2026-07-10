@@ -359,6 +359,7 @@ int main()
             default:
 
                 cout<<"Invalid choice\n";
+                break;
             
         }
     }
