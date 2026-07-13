@@ -317,7 +317,7 @@ int main()
         case 8:
 
             iRet = Count(head);
-            printf("Number of elements are : %d\n",iRet);
+            printf("Number of elements are : %d\n",iRet);  
             break;
 
         case 9:
