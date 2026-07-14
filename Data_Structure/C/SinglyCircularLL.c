@@ -99,6 +99,8 @@ void InsertLast(PPNODE first, PPNODE last, int iNo)
        *last = (*last)->next;  
        //*last = newn        
     }
+
+    (*last)->next = *first;
 }
 
 void InsertAtPos(PPNODE first, PPNODE last, int iNo, int iPos)
@@ -153,7 +155,7 @@ void DeleteFirst(PPNODE first, PPNODE last)
 {
     //PNODE temp = NULL;  
 
-    if(*first == NULL & *last == NULL)
+    if(*first == NULL && *last == NULL)
     {
         return;
     }
@@ -182,7 +184,7 @@ void DeleteLast(PPNODE first, PPNODE last)
     PNODE temp = NULL;
 
 
-    if(*first == NULL & *last == NULL)
+    if(*first == NULL && *last == NULL)
     {
         return;
     }

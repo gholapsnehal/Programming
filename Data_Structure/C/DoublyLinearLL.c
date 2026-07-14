@@ -228,7 +228,6 @@ void DeleteAtPos(PPNODE first, int iPos)
         {
             temp = temp->next;
         }
-
         
         temp->next = temp->next->next;
 
