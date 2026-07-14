@@ -1,5 +1,7 @@
 // Singly Linear Linked List
 
+import java.util.Scanner;
+
 class node
 {
     public int data;
@@ -229,42 +231,90 @@ public class SinglyLinearLL
 {
     public static void main(String A[])
     {
+        Scanner sobj = new Scanner(System.in);
+
+        SinglyLL obj = new SinglyLL();
+
+        int iChoice = 0;
+        int iValue = 0;
+        int iPosition = 0;
         int iRet = 0;
 
-        SinglyLL sobj = new SinglyLL();
+        while(iChoice != 9)
+        {
+            System.out.println("--------------------------------");
+            System.out.println("1 : Insert First");
+            System.out.println("2 : Insert Last");
+            System.out.println("3 : Insert At Position");
+            System.out.println("4 : Delete First");
+            System.out.println("5 : Delete Last");
+            System.out.println("6 : Delete At Position");
+            System.out.println("7 : Display");
+            System.out.println("8 : Count");
+            System.out.println("9 : Exit");
+            System.out.println("--------------------------------");
 
-        sobj.InsertFirst(51);
-        sobj.InsertFirst(21);
-        sobj.InsertFirst(11);
+            System.out.println("Enter your choice : ");
+            iChoice = sobj.nextInt();
 
-        sobj.InsertLast(101);
-        sobj.InsertLast(111);
-        sobj.InsertLast(121);
+            switch (iChoice) 
+            {
+                case 1:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    obj.InsertFirst(iValue);
+                    break;
 
+                case 2:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    obj.InsertLast(iValue);
+                    break;
 
-        sobj.Display();
-        iRet = sobj.Count();
-        System.out.println("Number of nodes in Singly Linked List : "+iRet);    
-        
-        sobj.DeleteFirst();
-        sobj.DeleteLast();
+                case 3:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    System.out.print("Enter Position : ");
+                    iPosition = sobj.nextInt();
 
-        sobj.Display();
-        iRet = sobj.Count();
-        System.out.println("Number of nodes in Singly Linked List : "+iRet);  
+                    obj.InsertAtPos(iValue, iPosition);
+                    break;
 
-        sobj.InsertAtPos(105,4);
+                case 4:
+                    obj.DeleteFirst();
+                    break;
 
-        sobj.Display();
-        iRet = sobj.Count();
-        System.out.println("Number of nodes in Singly Linked List : "+iRet);  
+                case 5:
+                    obj.DeleteLast();
+                    break;
 
-        sobj.DeleteAtPos(4);
+                case 6:
+                    System.out.print("Enter position : ");
+                    iPosition = sobj.nextInt();
 
-        sobj.Display();
-        iRet = sobj.Count();
-        System.out.println("Number of nodes in Singly Linked List : "+iRet);   
+                    obj.DeleteAtPos(iPosition);
+                    break;
 
+                case 7:
+                    obj.Display();
+                    break;
+
+                case 8:
+                    iRet = obj.Count();
+
+                    System.out.println("Number of nodes are in Singly Linear: "+iRet);
+                    break;
+
+                case 9:
+                    System.out.println("Thank you for using Singly Linear Linked List Application");
+                    break;
+                   
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
+        }
+        sobj.close();
     }
 }
 

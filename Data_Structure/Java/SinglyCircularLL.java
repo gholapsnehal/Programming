@@ -1,5 +1,7 @@
 //Singly Circular Linked List
 
+import java.util.Scanner;
+
 class Node
 {
     public int data;
@@ -229,51 +231,91 @@ public class SinglyCircularLL
 {
     public static void main(String A[])
     {
+        Scanner sobj = new Scanner(System.in);
+
+        SinglyCL obj = new SinglyCL();
+
+        int iChoice = 0;
+        int iValue = 0;
+        int iPosition = 0;
         int iRet = 0;
 
-        SinglyCL sobj = new SinglyCL();
+        while(iChoice != 9)
+        {
+            System.out.println("--------------------------------");
+            System.out.println("1 : Insert First");
+            System.out.println("2 : Insert Last");
+            System.out.println("3 : Insert At Position");
+            System.out.println("4 : Delete First");
+            System.out.println("5 : Delete Last");
+            System.out.println("6 : Delete At Position");
+            System.out.println("7 : Display");
+            System.out.println("8 : Count");
+            System.out.println("9 : Exit");
+            System.out.println("--------------------------------");
 
-        sobj.InsertFirst(51);
-        sobj.InsertFirst(21);
-        sobj.InsertFirst(11);
+            System.out.println("Enter your choice : ");
+            iChoice = sobj.nextInt();
 
-        sobj.InsertLast(101);
-        sobj.InsertLast(111);
-        sobj.InsertLast(121);
+            switch (iChoice) 
+            {
+                case 1:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    obj.InsertFirst(iValue);
+                    break;
 
-        sobj.Display();
+                case 2:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    obj.InsertLast(iValue);
+                    break;
 
-        iRet = sobj.Count();
-        System.out.println("Number of nodes in SCL: "+iRet);
+                case 3:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    System.out.print("Enter Position : ");
+                    iPosition = sobj.nextInt();
 
-        sobj.InsertAtPos(105,4);
+                    obj.InsertAtPos(iValue, iPosition);
+                    break;
 
-        sobj.Display();
+                case 4:
+                    obj.DeleteFirst();
+                    break;
 
-        iRet = sobj.Count();
-        System.out.println("Number of nodes in SCL: "+iRet);
+                case 5:
+                    obj.DeleteLast();
+                    break;
 
-        sobj.DeleteFirst();
+                case 6:
+                    System.out.print("Enter position : ");
+                    iPosition = sobj.nextInt();
 
-        sobj.Display();
+                    obj.DeleteAtPos(iPosition);
+                    break;
 
-        iRet = sobj.Count();
-        System.out.println("Number of nodes in SCL: "+iRet);
+                case 7:
+                    obj.Display();
+                    break;
 
-        sobj.DeleteLast();
+                case 8:
+                    iRet = obj.Count();
 
-        sobj.Display();
+                    System.out.println("Number of nodes are in Singly Circular: "+iRet);
+                    break;
 
-        iRet = sobj.Count();
-        System.out.println("Number of nodes in SCL: "+iRet);
+                case 9:
+                    System.out.println("Thank you for using Singly Circular Linked List Application");
+                    break;
+                   
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
+        }
 
-        sobj.DeleteAtPos(4);
-
-        sobj.Display();
-
-        iRet = sobj.Count();
-        System.out.println("Number of nodes in SCL: "+iRet);
-
+        sobj.close();
     }
     
 }

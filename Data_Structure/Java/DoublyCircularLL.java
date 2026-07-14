@@ -1,4 +1,5 @@
 // Doubly Circular Linked List
+import java.util.Scanner;
 
 class Node
 {
@@ -227,44 +228,90 @@ public class DoublyCircularLL
 {
     public static void main(String A[])
     {
+        Scanner sobj = new Scanner(System.in);
+
         DoublyCL dobj = new DoublyCL();
+
+        int iChoice = 0;
+        int iValue = 0;
+        int iPosition = 0;
         int iRet = 0;
 
-        dobj.InsertFirst(51);
-        dobj.InsertFirst(21);
-        dobj.InsertFirst(11);
+        while(iChoice != 9)
+        {
+            System.out.println("--------------------------------");
+            System.out.println("1 : Insert First");
+            System.out.println("2 : Insert Last");
+            System.out.println("3 : Insert At Position");
+            System.out.println("4 : Delete First");
+            System.out.println("5 : Delete Last");
+            System.out.println("6 : Delete At Position");
+            System.out.println("7 : Display");
+            System.out.println("8 : Count");
+            System.out.println("9 : Exit");
+            System.out.println("--------------------------------");
 
-        dobj.Display();
+            System.out.println("Enter your choice : ");
+            iChoice = sobj.nextInt();
 
-        iRet = dobj.Count();
-        System.out.println("Number of nodes are in DCL: "+iRet);
+            switch (iChoice) 
+            {
+                case 1:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    dobj.InsertFirst(iValue);
+                    break;
 
-        dobj.InsertLast(111);
-        dobj.InsertLast(121);
-        dobj.InsertLast(151);
+                case 2:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    dobj.InsertLast(iValue);
+                    break;
 
-        dobj.Display();
+                case 3:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    System.out.print("Enter Position : ");
+                    iPosition = sobj.nextInt();
 
-        iRet = dobj.Count();
-        System.out.println("Number of nodes are in DCL: "+iRet);
+                    dobj.InsertAtPos(iValue, iPosition);
+                    break;
 
-        dobj.InsertAtPos(101,4);
+                case 4:
+                    dobj.DeleteFirst();
+                    break;
 
-        dobj.Display();
+                case 5:
+                    dobj.DeleteLast();
+                    break;
 
-        iRet = dobj.Count();
-        System.out.println("Number of nodes are in DCL: "+iRet);
+                case 6:
+                    System.out.print("Enter position : ");
+                    iPosition = sobj.nextInt();
 
-        dobj.DeleteFirst();
+                    dobj.DeleteAtPos(iPosition);
+                    break;
 
-        dobj.DeleteLast();
+                case 7:
+                    dobj.Display();
+                    break;
 
-        dobj.DeleteAtPos(4);
+                case 8:
+                    iRet = dobj.Count();
 
-        dobj.Display();
+                    System.out.println("Number of nodes are in Doubly Circular: "+iRet);
+                    break;
 
-        iRet = dobj.Count();
-        System.out.println("Number of nodes are in DCL: "+iRet);
+                case 9:
+                    System.out.println("Thank you for using Doubly Circular Linked List Application");
+                    break;
+                   
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
+        }
+        sobj.close();        
     }
     
 }

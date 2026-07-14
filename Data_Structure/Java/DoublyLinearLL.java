@@ -1,5 +1,7 @@
 // Doubly Linear Linked List
 
+import java.util.Scanner;
+
 class node
 {
     public int data;
@@ -222,55 +224,92 @@ public class DoublyLinearLL
 {
     public static void main(String A[])
     {
+        Scanner sobj = new Scanner(System.in);
+
+        DoublyLL obj = new DoublyLL();
+
+        int iChoice = 0;
+        int iValue = 0;
+        int iPosition = 0;
         int iRet = 0;
 
-        DoublyLL dobj = new DoublyLL();
+        while(iChoice != 9)
+        {
+            System.out.println("--------------------------------");
+            System.out.println("1 : Insert First");
+            System.out.println("2 : Insert Last");
+            System.out.println("3 : Insert At Position");
+            System.out.println("4 : Delete First");
+            System.out.println("5 : Delete Last");
+            System.out.println("6 : Delete At Position");
+            System.out.println("7 : Display");
+            System.out.println("8 : Count");
+            System.out.println("9 : Exit");
+            System.out.println("--------------------------------");
 
-        dobj.InsertFirst(11);
+            System.out.println("Enter your choice : ");
+            iChoice = sobj.nextInt();
 
-        dobj.Display();
+            switch (iChoice) 
+            {
+                case 1:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    obj.InsertFirst(iValue);
+                    break;
 
-        iRet = dobj.Count();
-        System.out.println("Number of nodes are in DLL: "+iRet);
+                case 2:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    obj.InsertLast(iValue);
+                    break;
 
-        dobj.InsertLast(21);
-        dobj.InsertLast(51);
-        dobj.InsertLast(101);
-        dobj.InsertLast(111);
+                case 3:
+                    System.out.print("Enter Value : ");
+                    iValue = sobj.nextInt();
+                    System.out.print("Enter Position : ");
+                    iPosition = sobj.nextInt();
 
-        dobj.Display();
+                    obj.InsertAtPos(iValue, iPosition);
+                    break;
 
-        iRet = dobj.Count();
-        System.out.println("Number of nodes are in DLL: "+iRet);
+                case 4:
+                    obj.DeleteFirst();
+                    break;
 
-        dobj.InsertAtPos(105,4);
+                case 5:
+                    obj.DeleteLast();
+                    break;
+
+                case 6:
+                    System.out.print("Enter position : ");
+                    iPosition = sobj.nextInt();
+
+                    obj.DeleteAtPos(iPosition);
+                    break;
+
+                case 7:
+                    obj.Display();
+                    break;
+
+                case 8:
+                    iRet = obj.Count();
+
+                    System.out.println("Number of nodes are in Doubly Linear: "+iRet);
+                    break;
+
+                case 9:
+                    System.out.println("Thank you for using Doubly Linear Linked List Application");
+                    break;
+                   
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+            }
+        }
+
+        sobj.close();
         
-        dobj.Display();
-
-        iRet = dobj.Count();
-        System.out.println("Number of nodes are in DLL: "+iRet);
-
-        dobj.DeleteFirst();
-
-        dobj.Display();
-
-        iRet = dobj.Count();
-        System.out.println("Number of nodes are in DLL: "+iRet);
-
-        dobj.DeleteLast();
-
-        dobj.Display();
-
-        iRet = dobj.Count();
-        System.out.println("Number of nodes are in DLL: "+iRet);
-
-        dobj.DeleteAtPos(4);
-
-        dobj.Display();
-
-        iRet = dobj.Count();
-        System.out.println("Number of nodes are in DLL: "+iRet);
-
     }
     
 }
