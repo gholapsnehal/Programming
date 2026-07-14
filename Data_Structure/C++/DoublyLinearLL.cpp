@@ -293,7 +293,7 @@ int main()
         cout<<"4 : Delete node at first position : \n";
         cout<<"5 : Delete node at last position : \n";
         cout<<"6 : Delete node at given position : \n";
-        cout<<"7 : Display elements in Doubly Linke List : \n";
+        cout<<"7 : Display elements in Doubly Linear Linked List : \n";
         cout<<"8 : Count number of elements : \n";
         cout<<"9 : Exit\n";
         cout<<"---------------------------------------\n";

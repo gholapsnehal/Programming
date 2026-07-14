@@ -1,20 +1,21 @@
-// Singly Circular Linked List
-
+// Doubly Circular Linked List
 #include<iostream>
+
 using namespace std;
-  
+
 #pragma pack(1)
 struct node
 {
     int data;
     struct node *next;
+    struct node *previous;
 };
 
 typedef struct node NODE;
 typedef struct node* PNODE;
 
 #pragma pack(1)
-class SinglyCL
+class DoublyCL
 {
     private:
         PNODE first;
@@ -22,59 +23,57 @@ class SinglyCL
         int iCount;
 
     public:
-      // declaration of construtor
-        SinglyCL();
+
+        DoublyCL();
 
         void Display();
         int Count();
 
         void InsertFirst(int iNo);
         void InsertLast(int iNo);
-        void InsertAtPos(int iNo, int iPos);
+        void InsertAtPos(int iNo,int iPos);
 
         void DeleteFirst();
         void DeleteLast();
         void DeleteAtPos(int iPos);
-
 };
 
-SinglyCL :: SinglyCL()
+DoublyCL :: DoublyCL()
 {
-    this->first = NULL;
-    this->last = NULL;
+    first = NULL;
+    last = NULL;
 
-    this->iCount = 0;
+    iCount = 0;
 }
 
-void SinglyCL :: Display()
+void DoublyCL :: Display()
 {
-    PNODE temp = NULL;
-
-    // Input filter
     if(first == NULL && last == NULL)
     {
         return;
     }
 
-    temp = first;
+    PNODE temp = first;
+
+    cout<<" <=> ";
 
     do
     {
-        cout<<"| "<<temp->data<<" | - > ";
+        cout<<"| "<<temp->data<<" | <=> ";
         temp = temp->next;
 
-    }while(last->next != temp);
+    }while(temp != last->next);
 
     cout<<"\n";
-
+    
 }
 
-int SinglyCL :: Count()
+int DoublyCL :: Count()
 {
-    return this->iCount;
+    return iCount;
 }
 
-void SinglyCL :: InsertFirst(int iNo)
+void DoublyCL :: InsertFirst(int iNo)
 {
     PNODE newn = NULL;
 
@@ -82,25 +81,28 @@ void SinglyCL :: InsertFirst(int iNo)
 
     newn->data = iNo;
     newn->next = NULL;
+    newn->previous = NULL;
 
     if(first == NULL && last == NULL)
     {
         first = newn;
         last = newn;
     }
+
     else
     {
         newn->next = first;
+        first->previous = newn;
         first = newn;
-        
     }
 
-    last->next = first;        // IMP
-    iCount++;                  // IMP
+    last->next = first;
+    first->previous = last;
 
+    iCount++;  // IMP
 }
 
-void SinglyCL :: InsertLast(int iNo)
+void DoublyCL :: InsertLast(int iNo)
 {
     PNODE newn = NULL;
 
@@ -108,6 +110,7 @@ void SinglyCL :: InsertLast(int iNo)
 
     newn->data = iNo;
     newn->next = NULL;
+    newn->previous = NULL;
 
     if(first == NULL && last == NULL)
     {
@@ -117,18 +120,20 @@ void SinglyCL :: InsertLast(int iNo)
     else
     {
         last->next = newn;
-        last = newn;    
+        newn->previous = last;
+        last = newn;
     }
 
     last->next = first;
+    first->previous = last;
+
     iCount++;
 }
 
-void SinglyCL :: InsertAtPos(int iNo, int iPos)
+void DoublyCL :: InsertAtPos(int iNo,int iPos)
 {
     PNODE temp = NULL;
     PNODE newn = NULL;
-
     int i = 0;
 
     // Input Filter
@@ -142,10 +147,12 @@ void SinglyCL :: InsertAtPos(int iNo, int iPos)
     {
         InsertFirst(iNo);
     }
+
     else if(iPos == iCount + 1)
     {
         InsertLast(iNo);
     }
+
     else
     {
         temp = first;
@@ -154,6 +161,7 @@ void SinglyCL :: InsertAtPos(int iNo, int iPos)
 
         newn->data = iNo;
         newn->next = NULL;
+        newn->previous = NULL;
 
         for(i = 1; i < (iPos - 1); i++)
         {
@@ -161,17 +169,18 @@ void SinglyCL :: InsertAtPos(int iNo, int iPos)
         }
 
         newn->next = temp->next;
+        temp->next->previous = newn;
+
         temp->next = newn;
+        newn->previous = temp;
 
         iCount++;
     }
 
 }
 
-void SinglyCL :: DeleteFirst()   
+void DoublyCL :: DeleteFirst()
 {
-    PNODE temp = NULL;
-
     if(first == NULL && last == NULL)
     {
         return;
@@ -186,29 +195,22 @@ void SinglyCL :: DeleteFirst()
     }
     else
     {
-        temp = first;
-
         first = first->next;
-
-        delete temp;
+        delete first->previous;
 
         last->next = first;
-
+        first->previous = last;
     }
 
     iCount--;
-
 }
 
-void SinglyCL :: DeleteLast()
+void DoublyCL :: DeleteLast()
 {
-    PNODE temp = NULL;
-
     if(first == NULL && last == NULL)
     {
         return;
     }
-
     else if(first == last)
     {
         delete first;
@@ -218,32 +220,22 @@ void SinglyCL :: DeleteLast()
     }
     else
     {
-        // traversal required
-       temp = first;
+        last = last->previous;
+        delete last->next;
 
-       while(temp->next != last)
-       {
-        temp = temp->next;
-       }
-
-       delete last;
-       last = temp;
-
-       last->next = first;
-
+        last->next = first;
+        first->previous = last;
     }
 
     iCount--;
-
 }
 
-void SinglyCL :: DeleteAtPos(int iPos)
+void DoublyCL :: DeleteAtPos(int iPos)
 {
     PNODE temp = NULL;
-    PNODE target = NULL;
-
     int i = 0;
 
+    // Input Filter
     if((iPos < 1) || (iPos > iCount))
     {
         cout<<"Invalid Position\n";
@@ -254,10 +246,9 @@ void SinglyCL :: DeleteAtPos(int iPos)
     {
         DeleteFirst();
     }
-
     else if(iPos == iCount)
     {
-        DeleteLast();
+        DeleteLast();        
     }
     else
     {
@@ -268,20 +259,19 @@ void SinglyCL :: DeleteAtPos(int iPos)
             temp = temp->next;
         }
 
-        target = temp->next;
+        temp->next = temp->next->next;
 
-        temp->next = target->next;
-        delete target;
+        delete temp->next->previous;
 
-            iCount--;
+        temp->next->previous = temp;
+
+        iCount--;
     }
-
 }
-
 
 int main()
 {
-    SinglyCL sobj;
+    DoublyCL dobj;  
 
     int iChoice = 0;
     int iValue = 0;
@@ -300,25 +290,25 @@ int main()
         cout<<"4 : Delete node at first position : \n";
         cout<<"5 : Delete node at last position : \n";
         cout<<"6 : Delete node at given position : \n";
-        cout<<"7 : Display elements: \n";
-        cout<<"8 : Count elements : \n";
+        cout<<"7 : Display elements in Doubly Circular Linked List : \n";
+        cout<<"8 : Count number of elements : \n";
         cout<<"9 : Exit\n";
         cout<<"---------------------------------------\n";
 
-        cin>>iChoice;             
+        cin>>iChoice;              
 
         switch(iChoice)
         {
             case 1: 
                 cout<<"Enter the value: \n";
                 cin>>iValue;
-                sobj.InsertFirst(iValue);
+                dobj.InsertFirst(iValue);
                 break;
 
             case 2: 
                 cout<<"Enter the value: \n";
                 cin>>iValue;
-                sobj.InsertLast(iValue);
+                dobj.InsertLast(iValue);
                 break;
 
             case 3: 
@@ -326,41 +316,41 @@ int main()
                 cin>>iValue;
                 cout<<"Enter position: \n";
                 cin>>iPosition;
-                sobj.InsertAtPos(iValue,iPosition);
+                dobj.InsertAtPos(iValue,iPosition);
                 break;
 
             case 4: 
                 
-                sobj.DeleteFirst();
+                dobj.DeleteFirst();
                 break;
 
             case 5: 
                 
-                sobj.DeleteLast();
+                dobj.DeleteLast();
                 break;
 
             case 6: 
                 
                 cout<<"Enter position: \n";
                 cin>>iPosition;
-                sobj.DeleteAtPos(iPosition);
+                dobj.DeleteAtPos(iPosition);
                 break;
 
             case 7: 
                 
-                cout<<"Elements of Singly Circular Linked List are : \n";
-                sobj.Display();
+                cout<<"Elements of Doubly Circular Linked List are : \n";
+                dobj.Display();
                 break;
 
             case 8: 
                 
-                iRet = sobj.Count();
+                iRet = dobj.Count();
                 cout<<"Number of elements are : "<<iRet<<endl;
                 break;
 
             case 9: 
                 
-                cout<<"Thank you for using Singly Circular Linked List Application\n";
+                cout<<"Thank you for using Doubly Circular Linked List Application\n";
                 break;
 
             default:
