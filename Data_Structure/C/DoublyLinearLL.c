@@ -218,7 +218,7 @@ void DeleteAtPos(PPNODE first, int iPos)
     }
     else if(iPos == iCount)
     {
-        DeletetLast(first);
+        DeleteLast(first);
     }
     else                             
     {
