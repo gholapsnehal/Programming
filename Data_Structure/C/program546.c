@@ -1,0 +1,34 @@
+//RECURSION   : STRING:
+
+#include<stdio.h>
+
+int strlenX(char *str)
+{
+    static int iCount = 0;
+
+    if(*str != '\0')
+    {
+        iCount++;
+        str++;
+        strlenX(str);      // tail R
+    }
+
+    return iCount;
+
+}
+
+int main()
+{
+   
+    char Arr[20] = {'\0'};
+    int iRet = 0;
+
+    printf("Enter string : \n");
+    scanf("%[^'\n']s",Arr);
+
+    iRet = strlenX(Arr);
+
+    printf("string length is : %d\n",iRet);
+    
+    return 0;
+}
