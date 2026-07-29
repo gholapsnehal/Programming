@@ -1,4 +1,20 @@
 
+############################################################################################################
+#
+# Project Name:    Platform Surveillance System
+# Description:     Monitors system resources, generates log files, schedules execution
+#                  and sends the generated log file through email
+# Date :           29/07/2026
+# Author:          Snehal Gholap
+#
+############################################################################################################
+
+############################################################################################################
+#
+# Imported Modules
+#
+############################################################################################################
+
 import psutil
 import sys
 import os
@@ -7,6 +23,16 @@ import time
 import smtplib
 from email.message import EmailMessage
 
+############################################################################################################
+#
+# Function name:   ProcessScan
+# Input:           None
+# Output:          list
+# Description:     Scans all running processes and returns their information
+# Date :           29/07/2026
+# Author:          Snehal Gholap
+#
+############################################################################################################
 
 def ProcessScan():
 
@@ -28,8 +54,17 @@ def ProcessScan():
 
     return listprocess
 
-        
-
+############################################################################################################
+#
+# Function name:   PlatformSurvillence
+# Input:           string, string, string, string
+# Output:          None
+# Description:     Creates a platform surveillance log containing CPU, RAM, network and process information
+# Date :           29/07/2026
+# Author:          Snehal Gholap
+#
+############################################################################################################
+     
 def PlatformSurvillence(FolderName,ReceiverEmail,SenderEmail,Password):
 
     Border = "-"*80
@@ -82,7 +117,7 @@ def PlatformSurvillence(FolderName,ReceiverEmail,SenderEmail,Password):
     fobj.write(Border+"\n")
 
     #NETWORK USAGE
-    # object
+    # object created -> netobj
 
     netobj = psutil.net_io_counters()
 
@@ -116,13 +151,20 @@ def PlatformSurvillence(FolderName,ReceiverEmail,SenderEmail,Password):
     fobj.close()
 
 
-
     SendEmail(FileName,ReceiverEmail,SenderEmail,Password,timestamp,CPUUsage,RAMUsage,len(Data))
     
-
+############################################################################################################
+#
+# Function name:   SendEmail
+# Input:           string, string, string, string, string, float, float, int
+# Output:          None
+# Description:     Sends the generated log file as an email attachment
+# Date :           29/07/2026
+# Author:          Snehal Gholap
+#
+############################################################################################################
 
 def SendEmail(LogFileName, ReceiverEMail,SenderEMail, Password,ScanTime,CPUUsage,RAMUsage,TotalProcesses):
-
 
     try:
 
@@ -180,11 +222,13 @@ def SendEmail(LogFileName, ReceiverEMail,SenderEMail, Password,ScanTime,CPUUsage
     except Exception as eobj:
         print("Unable to send mail ",eobj)
         
-
+############################################################################################################
+#
+# Main Function
+#
+############################################################################################################
 
 def main():
-    # call process scan
-    #ProcessScan()
 
     Border = "-"*80
 
@@ -192,7 +236,7 @@ def main():
     print("Marvellous Platform Survillence System")
     print(Border)
 
-    # --h and --u handling
+    # --h and --u handling below
     if(len(sys.argv) == 2):
 
         if(sys.argv[1] == "--h" or sys.argv[1] == "--H"):
@@ -250,6 +294,13 @@ def main():
     print(Border)
     print("Thank You for using Marvellous Platform Survillence System")
     print(Border)
+
+
+############################################################################################################
+#
+# Starter
+#
+############################################################################################################
 
 if __name__ == "__main__":
     main()
