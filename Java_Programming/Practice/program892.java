@@ -1,0 +1,266 @@
+// Dynamic Binary Search
+
+import java.util.*;
+
+interface GetterSetter
+{
+    void Accept();
+    void Display();
+
+}
+
+class ArrayX implements GetterSetter
+{
+    protected int Arr[];
+    protected int iSize;
+
+    public ArrayX(int iSize)
+    {
+        this.iSize = iSize;
+        Arr = new int[iSize];
+    }
+
+    public void Accept()
+    {
+        Scanner sobj = new Scanner(System.in);
+
+        System.out.println("Enter the elements of array");
+
+        for(int i = 0; i < this.iSize; i++)
+        {
+            Arr[i] = sobj.nextInt();
+        }
+    }
+
+    public void Display()
+    {
+
+        System.out.println("Elements of  an array");
+
+        for(int i = 0; i < this.iSize; i++)
+        {
+            System.out.print(Arr[i]+"\t");
+        }
+
+        System.out.println();
+    }
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+// cannot be extended by other class
+final class Searching extends ArrayX
+{
+    public Searching(int iSize)
+    {
+        // It will call constructor of ArrayX class
+        super(iSize);    
+    }
+
+    public boolean LinearSearch(int iNo)
+    {
+        int i = 0;
+        boolean bFlag = false;
+
+        for(i = 0; i < super.iSize; i++)
+        {
+            if(Arr[i] == iNo)
+            {
+                bFlag = true;
+                break;
+            }
+
+        }
+
+        return bFlag;
+    }
+
+    public boolean BiDirectionalSearch(int iNo)
+    {
+        int iStart = 0, iEnd = 0;
+
+        iStart = 0;
+        iEnd = super.iSize - 1;
+
+        boolean bFlag = false;
+
+        while(iStart <= iEnd)
+        {
+            if(Arr[iStart] == iNo || Arr[iEnd] == iNo)
+            {
+                bFlag = true;
+                break;
+            }
+
+            iStart++;
+            iEnd--;
+        }
+
+        return bFlag;
+
+    }
+
+    public boolean CheckSorted()
+    {
+        int i = 0;
+        boolean bFlag = true;
+
+        for(i = 0; i < iSize - 1; i++)
+        {
+            if(Arr[i] > Arr[i + 1])
+            {
+                bFlag = false;
+                break;
+            }
+        }
+
+        return bFlag;
+
+    }
+
+    public boolean BinarySearch(int iNo)
+    {
+        int iStart = 0;
+        int iEnd = 0;
+        int iMid = 0;
+
+        boolean bFlag = false;
+
+        if(CheckSorted() == false)
+        {
+            // IMP
+            return BiDirectionalSearch(iNo);
+        }
+
+        iStart = 0;
+        iEnd = iSize - 1;
+
+        // Input Filter
+        if((iNo < Arr[iStart]) || (iNo > Arr[iEnd]))
+        {
+            return false;
+        }
+
+        while(iStart <= iEnd)
+        {
+            iMid = iStart + ((iEnd - iStart) / 2);
+
+            if(Arr[iMid] == iNo || Arr[iStart] == iNo || Arr[iEnd] == iNo)
+            {
+                bFlag = true;
+                break;
+            }
+            // Left Side
+            else if(iNo < Arr[iMid])
+            {
+                iEnd = iMid - 1;
+            }
+
+            // Right Side
+            else if(iNo > Arr[iMid])
+            {
+                iStart = iMid + 1;
+            }
+
+        }
+
+        return bFlag;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+final class Sorting extends ArrayX
+{
+    // constructor
+    public Sorting(int iSize)
+    {
+        super(iSize);
+    }
+    
+    public void BubbleSort()
+    {
+        int i = 0, j = 0, temp = 0;
+        int pass = 0;
+
+        for(i = 0, pass = 1; i < iSize - 1; i++, pass++)
+        {
+            for(j = 0; j < (iSize - 1 - i); j++)
+            {
+                if(Arr[j] > Arr[j+1])
+                {
+                    temp = Arr[j];
+                    Arr[j] = Arr[j+1];
+                    Arr[j+1] = temp;
+                }
+
+            }
+
+            System.out.println("Data after pass : "+pass);
+            Display();
+        }
+    }
+
+    // Efficient
+    public void BubbleSortEfficient()
+    {
+        int i = 0, j = 0, temp = 0;
+        
+        boolean bFlag = false;
+
+        bFlag = true;
+
+        for(i = 0; (i < iSize - 1) && (bFlag == true); i++)
+        {
+            bFlag = false;
+
+            for(j = 0; j < (iSize - 1 - i); j++)
+            {
+                if(Arr[j] > Arr[j+1])
+                {
+                    temp = Arr[j];
+                    Arr[j] = Arr[j+1];
+                    Arr[j+1] = temp;
+
+                    bFlag = true;  
+                }
+            }
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+public class program892
+{
+    public static void main(String A[])
+    {
+        Scanner sobj = new Scanner(System.in);
+        
+        // Input from user
+        System.out.println("Enter number of elements : ");
+        int iSize = sobj.nextInt();
+
+        Sorting srobj = new Sorting(iSize);
+
+        srobj.Accept();
+        srobj.Display();
+
+        srobj.BubbleSortEfficient();
+
+        System.out.println();
+        System.out.println("Final Sorted Array : ");
+        srobj.Display();
+
+
+
+        sobj.close();
+
+        srobj = null;
+        System.gc();
+       
+    }
+}
+
+// Time Comlexity : 
+
