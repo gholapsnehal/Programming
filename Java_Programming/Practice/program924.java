@@ -1,7 +1,8 @@
 import java.io.*;
 import java.net.*;
+import java.security.cert.TrustAnchor;
 
-public class program924
+class program924
 {
     public static void main(String A[])
     {
@@ -9,51 +10,46 @@ public class program924
         {
             ServerSocket serversocket = new ServerSocket(9000);
 
-            System.out.println("---------------------------------------------------------------------");
-            System.out.println("                          Server Started                             ");
-            System.out.println("---------------------------------------------------------------------");
+            System.out.println("-------------------------------------");
+            System.out.println("----- Marvellous Server Started -----");
+            System.out.println("-------------------------------------");
 
-            // LOOP FOR MULTIPLE CLIENT REQUESTS
+            // Loop for multiple client requests
             while(true)
             {
                 System.out.println("Server is waiting for client request");
 
-                Socket clientSocket = serversocket.accept();
+                Socket clientsocket = serversocket.accept();
+                
+                System.out.println("Client connected sucesfully");
 
-                System.out.println("Client connected successfully");
-
-                //  Thread gets created for client : arrow function
-                Thread t = new Thread(() -> HandleClientRequest(clientSocket));
+                // Thread gets created for client
+                Thread t = new Thread(() -> HandleClientRequest(clientsocket));
 
                 t.start();
-            }  // End of while
-            
+            } // End of while
         }
-
         catch(Exception e)
         {
-            System.out.println("Exception occurred : "+e);
+            System.out.println("Exception occured : "+e);
         }
-
     } // End of main
-
-//////////////////      function      //////////////////
 
     public static void HandleClientRequest(Socket socket)
     {
         try
         {
             DataInputStream dis = new DataInputStream(socket.getInputStream());
+
             DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 
-            // UTF turns any data into binary data
-            dos.writeUTF("Connected to Server"); 
-
+            dos.writeUTF("Connected to Marvellous Server");
+        
             while(true)
             {
                 String command = dis.readUTF();
 
-                System.out.println("Command reeived from client : "+command);
+                System.out.println("Command received from clinet : "+command);
 
                 String parts[] = command.split(" ");
 
@@ -61,24 +57,22 @@ public class program924
 
                 if(operation.equals("QUIT"))
                 {
-                    dos.writeUTF("Disconnected from server");
-
+                    dos.writeUTF("Disconneced from server");
+                
                     break;
                 }
 
-                // filter
                 if(parts.length != 3)
                 {
                     dos.writeUTF("Invalid command format");
+                
                     continue;
                 }
 
                 double no1 = Double.parseDouble(parts[1]);
                 double no2 = Double.parseDouble(parts[2]);
-
-                double result = 0;
-
-                // addition logic
+                
+                double result = 0.0;
 
                 if(operation.equals("ADD"))
                 {
@@ -96,20 +90,16 @@ public class program924
                 {
                     dos.writeUTF("Invalid operation");
                 }
-            }  // End of while
+            }// End of while
 
             socket.close();
-            System.out.println("Client disconnected");
 
+            System.out.println("Client disconnected");
         }
         catch(Exception e)
         {
-            System.out.println("EXCEPTION OCCURRED : "+e);
+            System.out.println("Exception occured : "+e);
         }
-
     }
 
-
-
-    
-} // End of Class
+} // End of class
