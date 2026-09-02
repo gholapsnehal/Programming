@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Assignment   : Question 44
+//  Assignment 48  : Question 1
 //  Program Name : Library Fine Calculator
 //  Description  : Accept number of days a book was kept and calculate fine
 //

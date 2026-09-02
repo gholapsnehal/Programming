@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //
-//  Assignment   : Question 45
+//  Assignment 48   : Question 2
 //  Program Name : ATMTransaction
 //  Description  : Accept current balance and withdrawal amount, validate
 //                 transaction rules and display remaining balance.
