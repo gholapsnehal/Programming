@@ -1,0 +1,34 @@
+// Q. matrix
+// 
+
+import java.util.*;
+
+public class program786
+{
+    public static void main(String A[])
+    {
+        Scanner sobj = new Scanner(System.in);
+
+        // Jagged array
+        
+        int Arr[][] = {{10,20,30}, {40,50,60}, {70,80,90,100}, {11,21}};
+
+        System.out.println(Arr.length);
+
+        for(int i = 0; i < Arr.length; i++)
+        {
+            for(int j = 0; j < Arr[i].length; j++)
+            {
+                System.out.print(Arr[i][j]+"\t");
+
+            }
+            System.out.println();           
+        }
+        
+
+        sobj.close();
+       
+        
+    }
+    
+}
