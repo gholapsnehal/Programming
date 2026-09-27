@@ -23,5 +23,5 @@ function DisplayDigit(Number)
 let value = 4563
 
 console.log("Digits are : ")
-DisplayDigit(4563)
+DisplayDigit(value)
 
