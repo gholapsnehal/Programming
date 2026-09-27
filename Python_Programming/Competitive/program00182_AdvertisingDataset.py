@@ -3,7 +3,7 @@
 #    Design and implement a Machine Learning application using Linear Regression
 #    to predict sales based on advertisement investments in TV, Radio, and
 #    Newspaper media. The model is trained on historical advertising data and
-#    used to estimate future sales values.
+#    used to estimate future sales values
 #################################################################################
 
 
