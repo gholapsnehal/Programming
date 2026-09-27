@@ -25,7 +25,7 @@ function DisplayCount(Number)
 
 let value = 4563
 
-let Result = DisplayCount(4563)
+let Result = DisplayCount(value)
 
 console.log("Digit ",value)
 console.log("Count of Digits : ",Result)
