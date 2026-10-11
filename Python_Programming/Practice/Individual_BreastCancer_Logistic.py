@@ -1,4 +1,16 @@
 #########################################################################################################
+#        Description :
+#        Developed a Machine Learning application using Logistic Regression to
+#        classify breast tumors as Malignant or Benign using the Breast Cancer
+#        Wisconsin Dataset.
+#########################################################################################################
+
+
+#########################################################################################################
+#
+#        Imported modules
+#
+#########################################################################################################
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
