@@ -1,7 +1,4 @@
 
-#data missing asel tr ky krtat?
-
-
 import pandas as pd
 
 border = "-"*80
