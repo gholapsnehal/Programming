@@ -1,3 +1,18 @@
+#################################################################################
+#    Description :
+#    Design and implement a Machine Learning application using Linear Regression
+#    to predict sales based on advertisement investments in TV, Radio, and
+#    Newspaper media. The model is trained on historical advertising data and
+#    used to estimate future sales values.
+#################################################################################
+
+
+#################################################################################
+#
+#     imported modules
+#
+#################################################################################
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -5,6 +20,8 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
+
+#################################################################################
 
 def AdvRegression(DataPath):
 
