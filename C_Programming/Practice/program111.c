@@ -1,26 +1,21 @@
-// ARRAY STATIC using function [ITERATION]
-
 #include<stdio.h>
 
-void Display(int Arr[])          
+void Display(int Arr[])
 {
     int iCnt = 0;
 
-    //              ISSUE
+    //              issue
     for(iCnt = 0; iCnt < 5; iCnt++)
     {
-        printf("%d\n",Arr[iCnt]);         // this will only print 5 elements and not 8
+        printf("%d\n",Arr[iCnt]); 
     }
-     
 }
-
 
 int main()
 {
     int Brr[8] = {10,20,30,40,50,60,70,80};
 
-    Display(Brr);                 
+    Display(Brr);
 
     return 0;
 }
-
