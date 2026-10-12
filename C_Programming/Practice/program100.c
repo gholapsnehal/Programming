@@ -1,5 +1,3 @@
-// ARRAY STATIC
-
 #include<stdio.h>
 
 int main()
@@ -7,7 +5,7 @@ int main()
     int Arr[5] = {0};
     int iCnt = 0;
 
-    printf("Enter the elements:\n");
+    printf("Enter the elements : \n");
 
     scanf("%d",&Arr[0]);
     scanf("%d",&Arr[1]);
@@ -15,12 +13,12 @@ int main()
     scanf("%d",&Arr[3]);
     scanf("%d",&Arr[4]);
 
-    printf("Elements of an array are: \n");
+    printf("Elements of the array are : \n");
     
     for(iCnt = 0; iCnt < 5; iCnt++)
     {
         printf("%d\n",Arr[iCnt]);
     }
-   
+
     return 0;
 }
