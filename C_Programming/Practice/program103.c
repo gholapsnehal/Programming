@@ -1,21 +1,17 @@
-// ARRAY STATIC : CALL BY ADDRESS
-
 #include<stdio.h>
 
-void CallByAddress(int *iptr)
+void CallByAddress(int *iPtr)
 {
-    (*iptr)++;  // 12  
-
+    (*iPtr)++;
 }
 
 int main()
 {
     int iValue = 11;
 
-    CallByAddress(&iValue);          // call by address : LValue  
+    CallByAddress(&iValue);    // CallByValue(11);
 
-    printf("Value after function call : %d\n",iValue);    // 12
+    printf("Value after function call : %d\n",iValue);
 
     return 0;
 }
-
