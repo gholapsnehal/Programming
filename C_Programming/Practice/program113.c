@@ -1,27 +1,20 @@
-// ARRAY STATIC using function [ITERATION]
-
-// ERROR: Either garbage value or segmentation fault 
-
 #include<stdio.h>
 
-void Display(int Arr[])          
+void Display(int Arr[])
 {
     int iCnt = 0;
-                
+
     for(iCnt = 0; iCnt < 8; iCnt++)
     {
-        printf("%d\n",Arr[iCnt]);
+        printf("%d\n",Arr[iCnt]); 
     }
-     
 }
-
 
 int main()
 {
     int Brr[4] = {10,20,30,40};
 
-    Display(Brr);                 
+    Display(Brr);
 
     return 0;
 }
-
