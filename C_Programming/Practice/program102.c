@@ -1,21 +1,17 @@
-// ARRAY STATIC : CALL BY VALUE
-
 #include<stdio.h>
 
 void CallByValue(int iNo)
 {
-    iNo++;   // 12
-
+    iNo++;
 }
 
 int main()
 {
     int iValue = 11;
 
-    CallByValue(iValue);      //CallByValue(11); RValue
+    CallByValue(iValue);    // CallByValue(11);
 
-    printf("Value after function call : %d\n",iValue);    // 11
+    printf("Value after function call : %d\n",iValue);
 
     return 0;
 }
-
