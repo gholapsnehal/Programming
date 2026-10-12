@@ -1,20 +1,21 @@
-/*   accept number from user and check whether it's even or odd.
-        START
-            Accept number as No
-            If no is completely divisible by 2
-                then print Even
-            otherwise
-                print Odd
-        STOP
-        
-        START
-            Accept number as No
-            Divide No by 2
-            If reaminder is 0
-                the print as Even
-            otherwise
-                print as Odd
-        STOP
+/*
+    START
+        Accept number as No
+        If No is completely divisible by 2
+            then print Even
+        otherwise
+            print Odd
+    STOP
+
+
+    START
+        Accept number as No
+        Divide No by 2
+        If remainder is 0
+            then print as Even
+        otherwise
+            print as Odd
+    STOP
 */
 
 #include<stdio.h>
@@ -35,7 +36,7 @@ int main()
     }
     else
     {
-        printf("Number is Odd");
+        printf("Number is Odd\n");
     }
 
     return 0;
