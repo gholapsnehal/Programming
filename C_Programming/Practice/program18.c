@@ -1,18 +1,16 @@
-// selection ladder and validation
-
 #include<stdio.h>
 
 int CalculateTicketPrice(int iAge)
 {
-    if(iAge >= 0 && iAge <= 5)
+    if(iAge >= 0 && iAge <=5)
     {
         return 0;
     }
-    else if(iAge >=6 && iAge <=18)
+    else if(iAge >= 6 && iAge <= 18)
     {
         return 500;
     }
-    else if(iAge >=19 && iAge <=50)
+    else if(iAge >= 19 && iAge <= 50)
     {
         return 900;
     }
@@ -20,7 +18,6 @@ int CalculateTicketPrice(int iAge)
     {
         return 400;
     }
-
 }
 
 int main()
@@ -30,10 +27,10 @@ int main()
 
     printf("Please enter your age to calculate ticket prices : ");
     scanf("%d",&iValue);
-   
-    iRet = CalculateTicketPrice(iValue);    // function call
 
-    printf("Your ticket price will be %d rupees\n",iRet);
-     
+    iRet = CalculateTicketPrice(iValue);
+
+    printf("Your ticket price will be %d ruppes\n",iRet);
+
     return 0;
 }
