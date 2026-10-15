@@ -1,27 +1,25 @@
-// selection ladder and validation
-
 #include<stdio.h>
 
-//User defined MACRO
-#define AGE_INVALID -1
+// User defoned macro
+#define AGE_INVAID -1
 
 int CalculateTicketPrice(int iAge)
 {
     // Input Filter
     if(iAge < 0)
     {
-        return AGE_INVALID;
+        return AGE_INVAID;
     }
 
-    if(iAge >= 0 && iAge <= 5)
+    if(iAge >= 0 && iAge <=5)
     {
         return 0;
     }
-    else if(iAge >=6 && iAge <=18)
+    else if(iAge >= 6 && iAge <= 18)
     {
         return 500;
     }
-    else if(iAge >=19 && iAge <=50)
+    else if(iAge >= 19 && iAge <= 50)
     {
         return 900;
     }
@@ -29,7 +27,6 @@ int CalculateTicketPrice(int iAge)
     {
         return 400;
     }
-
 }
 
 int main()
@@ -39,17 +36,17 @@ int main()
 
     printf("Please enter your age to calculate ticket prices : ");
     scanf("%d",&iValue);
-   
-    iRet = CalculateTicketPrice(iValue);    // function call
 
-    if(iRet == AGE_INVALID)
+    iRet = CalculateTicketPrice(iValue);
+
+    if(iRet == AGE_INVAID)
     {
         printf("Please enter positive Age\n");
     }
     else
     {
-    printf("Your ticket price will be %d rupees\n",iRet);
+        printf("Your ticket price will be %d ruppes\n",iRet);
     }
-     
+    
     return 0;
 }
