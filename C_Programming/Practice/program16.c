@@ -1,5 +1,3 @@
-// SHORT HAND CODE:: accept number from user and check whether it's even or odd.
-
 #include<stdio.h>
 #include<stdbool.h>
 
@@ -13,18 +11,17 @@ bool CheckEvenOdd(int iNo)
     {
         return false;
     }
-
 }
 
 int main()
 {
     int iValue = 0;
-    bool bRet = false;  //false =0
- 
-    printf("Enter number to check whether it is Even or Odd: ");
+    bool bRet = false;
+
+    printf("Enter number to check whether it is Even or Odd : ");
     scanf("%d",&iValue);
 
-    bRet =  CheckEvenOdd(iValue);
+    bRet = CheckEvenOdd(iValue);
 
     if(bRet == true)
     {
@@ -32,7 +29,7 @@ int main()
     }
     else
     {
-        printf("%d is Odd",iValue);
+        printf("%d is Odd\n",iValue);
     }
 
     return 0;
