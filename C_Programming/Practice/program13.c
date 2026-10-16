@@ -1,5 +1,3 @@
-// accept number from user and check whether it's even or odd.
-
 #include<stdio.h>
 
 int CheckEvenOdd(int iNo)
@@ -9,18 +7,17 @@ int CheckEvenOdd(int iNo)
     iRemainder = iNo % 2;
 
     return iRemainder;
-
 }
 
 int main()
 {
     int iValue = 0;
     int iRet = 0;
- 
+
     printf("Enter number : \n");
     scanf("%d",&iValue);
 
-    iRet =  CheckEvenOdd(iValue);
+    iRet = CheckEvenOdd(iValue);
 
     if(iRet == 0)
     {
@@ -28,7 +25,7 @@ int main()
     }
     else
     {
-        printf("Number is Odd");
+        printf("Number os Odd\n");
     }
 
     return 0;
