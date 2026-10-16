@@ -1,6 +1,3 @@
-/*   accept number from user and check whether it's even or odd.
-*/
-
 #include<stdio.h>
 
 void CheckEvenOdd(int iNo)
@@ -15,15 +12,13 @@ void CheckEvenOdd(int iNo)
     }
     else
     {
-        printf("Number is Odd");
+        printf("Number is Odd\n");
     }
-
 }
 
 int main()
 {
     int iValue = 0;
-    
 
     printf("Enter number : \n");
     scanf("%d",&iValue);
