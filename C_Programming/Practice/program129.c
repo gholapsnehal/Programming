@@ -1,58 +1,43 @@
-// Program: searching : linear search: check whether 11 is present or not.
-// using flag
-// Owner: Snehal Gholap
-
-
 #include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
 
-bool LineaerSearch(int Arr[], int iSize)
+bool LinearSearch(int Arr[], int iSize)
 {
     int iCnt = 0;
     bool bFlag = false;
-    
+
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
         if(Arr[iCnt] == 11)
         {
             bFlag = true;
-            break;                          // break ne loop chya baher jael              
-        }   
+            break;
+        }
     }
 
-    return bFlag;   
-
+    return bFlag;
 }
 
 int main()
 {
-    int iLength = 0;
     int *Brr = NULL;
-    int iCnt = 0;
+    int iLength = 0, iCnt = 0;
     bool bRet = false;
-    
-    // enter number of elements
 
-    printf("Enter number of elements: ");
+    printf("Enter the number of elements : \n");
     scanf("%d",&iLength);
 
-    // allocate memory
+    Brr = (int *)malloc(sizeof(int) * iLength);
 
-    Brr = (int *)malloc(iLength * sizeof(int));
-
-    // accept values from user
-
-    printf("Enter the elements: \n");
+    printf("Enter the elements : \n");
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
         scanf("%d",&Brr[iCnt]);
     }
 
-    // use memory
-
-    bRet = LineaerSearch(Brr,iLength);
+    bRet = LinearSearch(Brr,iLength);
 
     if(bRet == true)
     {
@@ -60,11 +45,9 @@ int main()
     }
     else
     {
-        printf("Element is not present");
-    }  
-
-    // deallocate memory
-
+        printf("Element is not present\n");
+    }
+    
     free(Brr);
 
     return 0;
