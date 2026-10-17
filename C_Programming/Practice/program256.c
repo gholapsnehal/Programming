@@ -1,27 +1,18 @@
-// problems on string
-// how to pass string to function
-// accept string from user and count capital characters
-
 #include<stdio.h>
 
-// strlenX() - user defined function
-
-int CountCapital(const char *str)
+int CountCapital(const char * str)
 {
-   int iCount = 0;
+    int iCount = 0;
 
-   while(*str != '\0')
-   {
-       if(*str >= 'A' && *str <= 'Z')
-       {
-        iCount++;
-       }  
-       str++;       
-       
-   }
-   
-   return iCount;
-
+    while(*str != '\0')
+    {
+        if(*str >= 'A' && *str <= 'Z')
+        {
+            iCount++;
+        }
+        str++;
+    }
+    return iCount;
 }
 
 int main()
@@ -31,10 +22,10 @@ int main()
 
     printf("Enter string : \n");
     scanf("%[^'\n']s",Arr);
-       
+
     iRet = CountCapital(Arr);
 
-    printf("Capital character Count is : %d\n",iRet);
-  
+    printf("Frequency is : %d\n",iRet);
+    
     return 0;
 }
