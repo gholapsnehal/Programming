@@ -1,5 +1,3 @@
-//Swapping : duckCup whiteCup and thirdCup(temp)
-
 #include<stdio.h>
 
 int main()
@@ -13,9 +11,8 @@ int main()
     i = j;
     j = temp;
 
-    printf("%d\n",i);  //21 
-    printf("%d\n",j);  //11
-
-
+    printf("%d\n",i);
+    printf("%d\n",j);
+    
     return 0;
 }
