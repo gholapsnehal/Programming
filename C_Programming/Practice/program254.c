@@ -1,27 +1,18 @@
-// problems on string
-// how to pass string to function
-// accept string from user and count small characters using ASCII
-
 #include<stdio.h>
 
-// strlenX() - user defined function
-
-int CountSmall(const char *str)
+int CountSmall(const char * str)
 {
-   int iCount = 0;
+    int iCount = 0;
 
-   while(*str != '\0')
-   {
-       if(*str >= 97 && *str <= 122)
-       {
-        iCount++;
-       }  
-       str++;       
-       
-   }
-   
-   return iCount;
-
+    while(*str != '\0')
+    {
+        if(*str >= 97 && *str <= 122)
+        {
+            iCount++;
+        }
+        str++;
+    }
+    return iCount;
 }
 
 int main()
@@ -31,10 +22,10 @@ int main()
 
     printf("Enter string : \n");
     scanf("%[^'\n']s",Arr);
-       
+
     iRet = CountSmall(Arr);
 
-    printf("Count is : %d\n",iRet);
-  
+    printf("Frequency is : %d\n",iRet);
+    
     return 0;
 }
