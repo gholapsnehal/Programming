@@ -1,21 +1,14 @@
-// problems on string
-// how to pass string to function
-
 #include<stdio.h>
 
 void Display(char *str)
 {
-   printf("%c\n",*str);
-   str++;
-
-   printf("%c\n",*str);
-   str++;
-
-   printf("%c\n",*str);
-   str++;
-
+    printf("%c\n",*str);
+    str++;
+    printf("%c\n",*str);
+    str++;
+    printf("%c\n",*str);
+    str++;
 }
-
 
 int main()
 {
@@ -23,8 +16,8 @@ int main()
 
     printf("Enter string : \n");
     scanf("%[^'\n']s",Arr);
-       
+
     Display(Arr);
-  
+
     return 0;
 }
