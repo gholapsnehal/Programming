@@ -1,27 +1,18 @@
-// problems on string
-// how to pass string to function
-
-// accept string from user and count frequency of a 
-
 #include<stdio.h>
 
-// strlenX() - user defined function
-
-int Count(const char *str)
+int Count(const char * str)
 {
-   int iCount = 0;
+    int iCount = 0;
 
-   while(*str != '\0')
-   {
+    while(*str != '\0')
+    {
         if(*str == 'a')
         {
             iCount++;
-        } 
-        str++;             
-   }
-   
-   return iCount;
-
+        }
+        str++;
+    }
+    return iCount;
 }
 
 int main()
@@ -31,10 +22,10 @@ int main()
 
     printf("Enter string : \n");
     scanf("%[^'\n']s",Arr);
-       
+
     iRet = Count(Arr);
 
-    printf("Frequency is: %d\n",iRet);
-  
+    printf("Frequency is : %d\n",iRet);
+    
     return 0;
 }
