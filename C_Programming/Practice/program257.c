@@ -1,27 +1,18 @@
-// problems on string
-// how to pass string to function
-// accept string from user and count whitespace
-
 #include<stdio.h>
 
-// strlenX() - user defined function
-
-int CountSpace(const char *str)
+int CountSpace(const char * str)
 {
-   int iCount = 0;
+    int iCount = 0;
 
-   while(*str != '\0')
-   {
-       if(*str == ' ')
-       {
-        iCount++;
-       }  
-       str++;       
-       
-   }
-   
-   return iCount;
-
+    while(*str != '\0')
+    {
+        if(*str == ' ')
+        {
+            iCount++;
+        }
+        str++;
+    }
+    return iCount;
 }
 
 int main()
@@ -31,10 +22,10 @@ int main()
 
     printf("Enter string : \n");
     scanf("%[^'\n']s",Arr);
-       
+
     iRet = CountSpace(Arr);
 
-    printf("whitespace Count is : %d\n",iRet);
-  
+    printf("Frequency is : %d\n",iRet);
+    
     return 0;
 }
