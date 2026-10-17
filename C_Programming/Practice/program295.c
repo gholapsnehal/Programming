@@ -1,46 +1,36 @@
-//String : actual reverse string (concept swap here)
 #include<stdio.h>
 
 void strrevX(char *str)
 {
-    // 
-    char *start = NULL; 
+    char *start = NULL;
     char *end = NULL;
-
-    start = str; 
+    
+    start = str;
 
     while(*str != '\0')
     {
-        str++;              
-
-    str--;       
-
-    while(start <= str)       
+        str++;
+    }
+    
+    str--;
+    
+    while(start <= str)
     {
-        printf("%s\n",str);    
+        printf("%s\n",str);
         str--;
     }
 
     printf("\n");
-
-    }
 }
 
 int main()
-
 {
     char Arr[50] = {'\0'};
 
-    printf("Enter String :\n");
+    printf("Enyter string : \n");
     scanf("%[^'\n']s",Arr);
 
     ReverseDisplay(Arr);
 
-
     return 0;
 }
-
-// Time Complexity : O(2n)
-/*
-
-*/
