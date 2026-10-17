@@ -1,12 +1,10 @@
-// for loop iteration
-
 #include<stdio.h>
 
 void Display(int iNo)
 {
     int iCnt = 0;
-
-    //Input Updator
+ 
+    // Updator
     if(iNo < 0)
     {
         iNo = -iNo;
@@ -16,18 +14,16 @@ void Display(int iNo)
     {
         printf("Jay Ganesh...\n");
     }
-
 }
 
 int main()
 {
-
     int iValue = 0;
 
     printf("Enter the frequency : ");
     scanf("%d",&iValue);
-
-    Display(iValue);
     
+    Display(iValue);
+
     return 0;
 }
