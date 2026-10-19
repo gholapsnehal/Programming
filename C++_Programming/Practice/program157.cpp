@@ -1,37 +1,30 @@
-// C++:
-
 #include<iostream>
 using namespace std;
 
-// its always good to write pragma in cpp code
 #pragma pack(1)
 class ArrayX
 {
     public:
-    int *Arr;
-    int iSize;
+        int *Arr;
+        int iSize;
 
-    // default constructor
-    ArrayX()
-    {
+        // Default constructor
+        ArrayX()
+        {
+        }
 
-    }
-
-    // parameterized constructor
-    ArrayX(int X)
-    {
-
-    }
-};
+        // Parametrised constructor
+        ArrayX(int X)
+        {
+        }
+}; 
 
 int main()
-
 {
-    ArrayX aobj1;             // default 
-    ArrayX aobj2(5);          // parameterized
+    ArrayX aobj1;           // Default        
+    ArrayX aobj2(5);        // Parametrised
 
-    cout<<sizeof(aobj1)<<endl;       // 12 byte: padding: 4 byte
+    cout<<sizeof(aobj1)<<endl;       
 
     return 0;
- 
 }
