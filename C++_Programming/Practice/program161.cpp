@@ -1,43 +1,34 @@
-// C++: OOP Designing
-
 #include<iostream>
 using namespace std;
 
-// its always good to write pragma in cpp code
 #pragma pack(1)
 class ArrayX
 {
     public:
-    int *Arr;
-    int iSize;
-   
-    ArrayX(int X)
-    {
-       
-        iSize = X; 
+        int *Arr;
+        int iSize;
 
-           
-        Arr = new int[iSize];
+        ArrayX(int X)
+        {
+            iSize = X;                 
+            Arr = new int[iSize];       
+        }
 
-    }
+        ~ArrayX()
+        {
+            cout<<"Inside destructor\n";
 
-    ~ArrayX()
-    {
-        
-        delete []Arr;
-    }
-};
+            delete []Arr;       
+        }
+}; 
 
 int main()
-
-{ 
+{          
     ArrayX *aobj1 = new ArrayX(5);
-
-    // LOGIC (Function call)
+    
+    // Logic (Function call)
 
     delete aobj1;
 
- 
     return 0;
- 
 }
