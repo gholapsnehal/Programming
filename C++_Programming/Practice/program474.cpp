@@ -1,13 +1,8 @@
-// Specific to Generic code
-
 #include<iostream>
 using namespace std;
-// template headerfile
-//template<class T>
 
-float Maximum(float No1, float No2)
+int Maximum(int No1, int No2)
 {
-
     if(No1 > No2)
     {
         return No1;
@@ -16,14 +11,11 @@ float Maximum(float No1, float No2)
     {
         return No2;
     }
-
 }
-
 
 int main()
 {
-    cout<<Maximum(21.2f,11.2f)<<endl;
+    cout<<Maximum(21,11)<<"\n";
 
-    
     return 0;
 }
