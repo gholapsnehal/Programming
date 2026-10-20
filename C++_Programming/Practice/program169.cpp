@@ -1,93 +1,81 @@
-// C++: OOP Designing : industrial level accepted
-
 #include<iostream>
 using namespace std;
 
-// its always good to write pragma in cpp code
 #pragma pack(1)
 class ArrayX
 {
     private:
-    int *Arr;
-    int iSize;
-   
+        int *Arr;
+        int iSize;
+
     public:
-   
-    // parameterzied constructor with default argument
-    ArrayX(int X = 5)
-    {
-        iSize = X;     
-        Arr = new int[iSize];
-    }
-
-    ~ArrayX()
-    {
-        
-        delete []Arr;
-    }
-
-    void Accept()
-    {
-        int iCnt = 0;
-        cout<<"Enter elements: \n";
-
-        for(iCnt = 0; iCnt < iSize; iCnt++)
+        // Parametrised constructor with default argument
+        ArrayX(int X = 5)
         {
-            cin>>Arr[iCnt];
+            iSize = X;                 
+            Arr = new int[iSize];       
         }
 
-    }
-
-    void Display()
-    {
-        int iCnt = 0;
-        cout<<"Elements of an array are: \n";
-
-        for(iCnt = 0; iCnt < iSize; iCnt++)
+        ~ArrayX()
         {
-            cout<<Arr[iCnt]<<endl;
+            delete []Arr;       
         }
 
-    }
-
-    int Summation()
-    {
-        int iSum = 0;
-        int iCnt = 0;
-
-        for(iCnt = 0; iCnt < iSize; iCnt++)
+        void Accept()
         {
-            iSum = iSum + Arr[iCnt];
+            int iCnt = 0;
+
+            cout<<"Enter the elements : \n";
+
+            for(iCnt = 0; iCnt < iSize; iCnt++)
+            {
+                cin>>Arr[iCnt];
+            }
         }
 
-        return iSum;
-    }
+        void Display()
+        {
+            int iCnt = 0;
 
+            cout<<"Elements of the array are : \n";
 
-};
+            for(iCnt = 0; iCnt < iSize; iCnt++)
+            {
+                cout<<Arr[iCnt]<<endl;
+            }
+        }
+
+        int Summation()
+        {
+            int iCnt = 0, iSum = 0;
+
+            for(iCnt = 0; iCnt < iSize; iCnt++)
+            {
+                iSum = iSum + Arr[iCnt];
+            }
+
+            return iSum;
+        }
+}; 
 
 int main()
-
-{ 
-    
+{          
     ArrayX *aobj = NULL;
-    int iLength = 0;
-    int iRet = 0;
+    int iLength = 0, iRet = 0;
 
-    cout<<"Enter number of elements: \n";
+    cout<<"Enter the numebr of elements : \n";
     cin>>iLength;
 
     aobj = new ArrayX(iLength);
 
     aobj->Accept();
     aobj->Display();
+
     iRet = aobj->Summation();
 
-    cout<<"Summation is: "<<iRet<<endl;
- 
+    cout<<"Summation is : "<<iRet<<"\n";
+    
     delete aobj;
 
- 
     return 0;
- 
 }
