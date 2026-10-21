@@ -1,38 +1,28 @@
-// Specific to Generic code
-
 #include<iostream>
 using namespace std;
-// template headerfile
-template<class S>
 
-S Maximum(S No1, S No2)
+template <class X>
+X Maximum(X No1, X No2)
 {
-
-    S Ans;
+    X Ans;
 
     if(No1 > No2)
     {
-        Ans = No1;
+        Ans =  No1;
     }
-
     else
     {
-        Ans = No2;
+        Ans =  No2;
     }
-
+    
     return Ans;
-
 }
-
 
 int main()
 {
-    cout<<Maximum(21.2f,11.3f)<<endl;
+    cout<<Maximum(21.5f,11.5f)<<"\n";
+    cout<<Maximum(21.5,11.5)<<"\n";
+    cout<<Maximum(21,11)<<"\n";
 
-    cout<<Maximum(21.24,11.35)<<endl;
-
-    cout<<Maximum(21,11)<<endl;
-
-    
     return 0;
 }
