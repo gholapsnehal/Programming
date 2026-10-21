@@ -1,15 +1,9 @@
-// Specific to Generic code
-
 #include<iostream>
 using namespace std;
-// template headerfile
-template<class S>
 
-S Maximum(S No1, S No2, S No3)
+template <class X>
+X Maximum(X No1, X No2, X No3)
 {
-
-    S Ans;
-
     if(No1 > No2 && No1 > No3)
     {
         return No1;
@@ -21,19 +15,14 @@ S Maximum(S No1, S No2, S No3)
     else
     {
         return No3;
-    }  
-
+    }
 }
-
 
 int main()
 {
-    cout<<Maximum(21.2f,11.3f,18.9f)<<endl;
+    cout<<Maximum(21.5f,11.5f,18.9f)<<"\n";
+    cout<<Maximum(21.5,11.5,56.3)<<"\n";
+    cout<<Maximum(21,51,7)<<"\n";
 
-    cout<<Maximum(21.24,11.35,56.3)<<endl;
-
-    cout<<Maximum(21,51,7)<<endl;
-
-    
     return 0;
 }
