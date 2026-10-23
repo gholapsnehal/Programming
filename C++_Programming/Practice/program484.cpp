@@ -1,10 +1,7 @@
-// Specific to Generic code
-
 #include<iostream>
 using namespace std;
 
-template<class T>
-
+template <class T>
 void Display(T Arr[], int Size)
 {
     int i = 0;
@@ -14,28 +11,24 @@ void Display(T Arr[], int Size)
         cout<<Arr[i]<<"\n";
     }
 }
-// have to add on top of every function
 
-template<class T>
+template <class T>
 T Summation(T Arr[], int Size)
 {
-    T Sum = 0;
     int i = 0;
+    T sum = 0;
 
     for(i = 0; i < Size; i++)
     {
-        Sum = Sum + Arr[i];
+        sum = sum + Arr[i];
     }
 
-    return Sum;
-
+    return sum;
 }
-
 
 int main()
 {
     double Brr[] = {10.2,20.2,30.2,40.2,50.2};
-
     int Crr[] = {10,20,30,40,50};
 
     Display(Brr,5);
@@ -45,6 +38,6 @@ int main()
     Display(Crr,5);
 
     cout<<Summation(Crr,5)<<"\n";
-    
+
     return 0;
 }
