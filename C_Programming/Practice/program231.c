@@ -2,11 +2,9 @@
 
 int main()
 {
-
-    // it gives output with some garbage value
     char str[] = {'J','a','y',' ','g','a','n','e','s','h'};
 
-    printf("%s\n",str);  // print all character till \0
-
+    printf("%s\n",str);
+    
     return 0;
 }
