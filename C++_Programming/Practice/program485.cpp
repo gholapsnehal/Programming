@@ -1,4 +1,4 @@
-#include<iostream> 
+#include<iostream>
 using namespace std;
 
 class ArrayX
@@ -17,40 +17,11 @@ class ArrayX
         {
             delete []Arr;
         }
-
-        void Accept()
-        {
-            int i = 0;
-            cout<<"Enter the elements: "<<endl;
-
-            for(i = 0; i < Size; i++)
-            {
-                cin>>Arr[i];
-            }
-
-        }
-
-        void Display()
-        {
-            int i = 0;
-            cout<<"Elements of an array: "<<endl;
-
-            for(i = 0; i < Size; i++)
-            {
-                cout<<Arr[i]<<endl;
-            }
-
-        }
-
 };
 
 int main()
 {
-
     ArrayX aobj(5);
-
-    aobj.Accept();
-    aobj.Display();
 
     return 0;
 }
