@@ -1,5 +1,3 @@
-// Specific to Generic code
-
 #include<iostream>
 using namespace std;
 
@@ -15,19 +13,16 @@ void Display(double Arr[], int Size)
 
 double Summation(double Arr[], int Size)
 {
-    double Sum = 0;
     int i = 0;
+    double sum = 0.0;
 
     for(i = 0; i < Size; i++)
     {
-        Sum = Sum + Arr[i];
+        sum = sum + Arr[i];
     }
 
-    return Sum;
-
-
+    return sum;
 }
-
 
 int main()
 {
@@ -36,6 +31,6 @@ int main()
     Display(Brr,5);
 
     cout<<Summation(Brr,5)<<"\n";
-    
+
     return 0;
 }
