@@ -1,13 +1,8 @@
-// problems on string
-
-
 #include<stdio.h>
 
 int main()
 {
-    // same as char str[] = "Ganesh";
-
-    char *str = "Ganesh"; // last \0 is there 
+    char *str = "Ganesh";   // char str[] = "Ganesh";
 
     printf("%c\n",*str);
     str++;
@@ -26,7 +21,6 @@ int main()
 
     printf("%c\n",*str);
     str++;
-      
 
     return 0;
 }
