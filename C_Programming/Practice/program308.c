@@ -1,13 +1,10 @@
-// BITWISE OPERATOR
-
-// 1. accept number from user and check whether its 3rd bit 1 or not
 
 #include<stdio.h>
 
 int main()
 {
     int iNo = 0;
-    int iMask = 4;   // 3rd bit
+    int iMask = 4;
     int iAns = 0;
 
     printf("Enter number : \n");
@@ -22,8 +19,7 @@ int main()
     else
     {
         printf("3rd bit is OFF\n");
-    }    
-
+    }
 
     return 0;
 }
