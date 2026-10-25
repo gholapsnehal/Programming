@@ -1,5 +1,3 @@
-// for loop iteration
-
 #include<stdio.h>
 
 int main()
@@ -10,12 +8,10 @@ int main()
     printf("Enter the frequency : ");
     scanf("%d",&iValue);
     
-    // Iteration
-    
     for(iCnt = 1; iCnt <= iValue; iCnt++)
     {
         printf("Jay Ganesh...\n");
-    }
+    }  
 
     return 0;
 }
