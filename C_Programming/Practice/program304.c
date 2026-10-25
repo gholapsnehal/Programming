@@ -1,24 +1,19 @@
-// BITWISE OPERATOR
 
 #include<stdio.h>
 
 int main()
 {
-    int iNo1 = 0;
-    int iNo2 = 0;
-    int Ans = 0;
+    int No1 = 0, No2 = 0, Ans = 0;
 
     printf("Enter first number : \n");
-    scanf("%d",&iNo1);
+    scanf("%d",&No1);
 
     printf("Enter second number : \n");
-    scanf("%d",&iNo2);
+    scanf("%d",&No2);
 
-    Ans = iNo1 & iNo2;       // bitwise &(AND)
+    Ans = No1 & No2;
 
     printf("Result is : %d\n",Ans);
-
-  
 
     return 0;
 }
