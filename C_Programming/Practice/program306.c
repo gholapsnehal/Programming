@@ -1,6 +1,3 @@
-// BITWISE OPERATOR
-
-// take number from user and check how many 1 are there in bit
 
 #include<stdio.h>
 
@@ -14,18 +11,14 @@ int main()
     while(iNo != 0)
     {
         iDigit = iNo % 2;
-
         if(iDigit == 1)
         {
             iCount++;
         }
-        
         iNo = iNo / 2;
-               
     }
 
-    printf("Count : %d",iCount);
-
+    printf("Number of 1's are : %d\n",iCount);
 
     return 0;
 }
