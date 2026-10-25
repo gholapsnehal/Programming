@@ -1,8 +1,3 @@
-// BITWISE OPERATOR
-
-/*
-
-*/
 #include<stdio.h>
 
 int main()
@@ -15,10 +10,8 @@ int main()
 
     while(iNo != 0)
     {
-        iDigit = iNo % 2;         // will get binary number
-
+        iDigit = iNo % 2;
         printf("%d",iDigit);
-
         iNo = iNo / 2;
     }
 
