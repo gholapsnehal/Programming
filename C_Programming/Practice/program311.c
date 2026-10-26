@@ -1,7 +1,3 @@
-// BITWISE OPERATOR
-
-// 1. accept number from user and check whether 7th bit off or on
-
 #include<stdio.h>
 
 typedef unsigned int UINT;
@@ -9,7 +5,7 @@ typedef unsigned int UINT;
 int main()
 {
     UINT iNo = 0;
-    UINT iMask = 64;  // 7th bit
+    UINT iMask = 64;
     UINT iAns = 0;
 
     printf("Enter number : \n");
@@ -24,8 +20,7 @@ int main()
     else
     {
         printf("7th bit is OFF\n");
-    }    
-
+    }
 
     return 0;
 }
