@@ -1,8 +1,3 @@
-// BITWISE OPERATOR
-// dynamic mask designing
-
-// 1. accept number from user and check whether 7th bit off or on
-
 #include<stdio.h>
 
 typedef unsigned int UINT;
@@ -10,17 +5,17 @@ typedef unsigned int UINT;
 int main()
 {
     UINT iNo = 0;
-    UINT iMask = 0x1;  // or 1
+    UINT iMask = 0x1;
     UINT iAns = 0;
     UINT iPos = 0;
 
     printf("Enter number : \n");
     scanf("%d",&iNo);
 
-    printf("Enter position : \n");
+    printf("Enter the position : \n");
     scanf("%d",&iPos);
 
-    iMask = iMask << (iPos - 1);
+    iMask = iMask << (iPos -1);
 
     iAns = iNo & iMask;
 
@@ -31,8 +26,7 @@ int main()
     else
     {
         printf("Bit is OFF\n");
-    }    
-
+    }
 
     return 0;
 }
