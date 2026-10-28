@@ -1,23 +1,19 @@
-// accept number from user and accept position and toggle bit
-
 #include<stdio.h>
 
 typedef unsigned int UINT;
-
+// Poistion : 13
 int main()
 {
-    UINT iMask = 0xFFFFEFFF; //mask for 13th bit off
     UINT iNo = 0;
-    
+    UINT iMask = 0xFFFFEFFF;
+    UINT iPos = 0;
 
     printf("Enter number : \n");
     scanf("%d",&iNo);
 
     iNo = iNo & iMask;
 
-    printf("updated number : %d\n",iNo);
-
+    printf("Updated number : %d\n",iNo);
 
     return 0;
 }
-
