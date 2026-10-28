@@ -1,5 +1,3 @@
-// accept number from user and accept position and toggle bit
-
 #include<stdio.h>
 
 typedef unsigned int UINT;
@@ -16,4 +14,3 @@ int main()
 
     return 0;
 }
-
