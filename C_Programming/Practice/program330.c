@@ -1,33 +1,22 @@
-// accept number from user and toggle 4th bit of that number
-
 #include<stdio.h>
 
 typedef unsigned int UINT;
 
+// Position : 4
+
 int main()
 {
-    UINT iMask = 0;
     UINT iNo = 0;
+    UINT iMask = 0;
 
     printf("Enter number : \n");
     scanf("%d",&iNo);
 
-    iMask = 0x00000008; //hex
+    iMask = 0x00000008;
 
     iNo = iNo ^ iMask;
 
-    printf("updated number : %d\n",iNo);
-
+    printf("Updated number : %d\n",iNo);
 
     return 0;
 }
-
-/*
-Enter number :
-44
-updated number : 36     
-
-Enter number :
-36
-updated number : 44
-*/
