@@ -1,14 +1,13 @@
-// accept number from user and accept position and toggle bit
-
-// 1 0 1 1 1 0 0 0 0
-// 0 1 0 0 0 
 #include<stdio.h>
 
 typedef unsigned int UINT;
 
+// 1    0   1   1   0   0   0   0  
+// 0    1   0   0   0   0   0   0
+
 int main()
 {
-    UINT iMask = 0xFFFFFFBF;   // bit 1 asel tr ~ 0 krel
+    UINT iMask = 0xFFFFFFBF;
 
     printf("Before : %X\n",iMask);
 
@@ -18,8 +17,3 @@ int main()
 
     return 0;
 }
-
-/*
-Before : FFFFFFBF
-After : 40
-*/
