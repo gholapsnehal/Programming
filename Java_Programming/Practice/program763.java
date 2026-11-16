@@ -12,7 +12,7 @@ class program763
         }
         
         char Arr[] = str1.toCharArray();
-        char Brr[] = str2.toCharArray(); 
+        char Brr[] = str2.toCharArray();
 
         Arrays.sort(Arr);
         Arrays.sort(Brr);
